@@ -1,4 +1,4 @@
-# Codematics Internship 2026 – Frontend Portfolio
+# Codematics Internship 2026 – Frontend tasks Portfolio
 
 Welcome to my digital logbook! This repository showcases my journey as a **Web Development Intern at Codematics**. It tracks my progress from mastering core HTML/CSS 
 structures to building complex, high-fidelity responsive designs and interactive JavaScript applications.
