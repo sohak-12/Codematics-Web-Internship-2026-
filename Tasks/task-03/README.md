@@ -24,7 +24,7 @@ The design features a distinct two-column layout: a descriptive left-hand panel 
 Since this project is part of a larger repository, follow these steps to view it:
 
 1. **Clone/Download:** Download the full repository ZIP or clone it via Git.
-2. **Navigate:** Go to the directory: `Tasks/Task-04/src/`.
+2. **Navigate:** Go to the directory: `Tasks/Task-03/src/`.
 3. **Launch:** Open `index.html` in your browser. 
     * *Note: Ensure the `Images-3` directory (located at the parent level of `src`) is present to load the favicon, club logos, and branding icons correctly.*
 
