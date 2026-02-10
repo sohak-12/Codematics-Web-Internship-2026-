@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 06</title>
+    <meta
+      name="description"
+      content="Portfolio of Ahsan, a Full Stack Developer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              gray: {
+                900: "#111827",
+                950: "#030712",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;}
+        
+  .back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.8);
+   backdrop-filter: blur(10px);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: 0.3s ease;
+  z-index: 1000;
+  font-family: sans-serif;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  }
+
+  .back-btn:hover {
+  background: #000;
+  color: #00d2ff;
+  transform: translateX(5px);
+  border-color: #00d2ff;
+  }
+  </style>
+  </head>
+  <body
+    class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 transition-colors duration-300"
+  >
+    <a href="../../../index.html" class="back-btn">← Back to Logbook</a>
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex-shrink-0">
+            <a
+              href="#"
+              class="text-2xl font-bold tracking-tighter text-gray-900 dark:text-gray-50"
+            >
+              &lt;SSC/&gt;
+            </a>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#about"
+              class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-colors"
+              >About</a
+            >
+            <a
+              href="#work"
+              class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-colors"
+              >Work</a
+            >
+            <a
+              href="#testimonials"
+              class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-colors"
+              >Testimonials</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-colors"
+              >Contact</a
+            >
+
+            <div class="h-6 w-px bg-gray-200 dark:bg-gray-700"></div>
+            <button
+              id="theme-toggle"
+              class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 transition-all"
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                ></path>
+              </svg>
+            </button>
+
+            <a
+              href="#"
+              class="bg-gray-900 dark:bg-gray-50 text-white dark:text-gray-900 px-4 py-2 rounded-xl font-medium hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors"
+            >
+              Download CV
+            </a>
+          </div>
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-button"
+              class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+            >
+              <svg
+                class="h-6 w-6"
+                stroke="currentColor"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  class="inline-flex"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800"
+      >
+        <div class="px-4 pt-2 pb-4 space-y-1">
+          <a
+            href="#about"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
+            >About</a
+          >
+          <a
+            href="#work"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
+            >Work</a
+          >
+          <a
+            href="#testimonials"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
+            >Testimonials</a
+          >
+          <a
+            href="#contact"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
+            >Contact</a
+          >
+          <div class="pt-4 flex items-center justify-between px-3">
+            <span class="text-sm text-gray-500 dark:text-gray-400"
+              >Switch Theme</span
+            ><button
+              id="mobile-theme-toggle"
+              class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              <svg
+                id="mobile-theme-toggle-dark-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="mobile-theme-toggle-light-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="pt-2 px-3">
+            <a
+              href="#"
+              class="block w-full text-center bg-gray-900 dark:bg-gray-50 text-white dark:text-gray-900 px-4 py-3 rounded-xl font-medium hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors"
+            >
+              Download CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section
+      class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+    >
+      <div
+        class="flex flex-col-reverse md:flex-row items-center justify-between gap-12"
+      >
+        <div class="w-full md:w-7/12 space-y-8">
+          <h1
+            class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-50 tracking-tight"
+          >
+            Hi, I'm Ahsan <span class="inline-block animate-wave">👋</span>
+          </h1>
+          <p
+            class="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl"
+          >
+          I'm a full stack developer (React.js & Node.js) with a focus on creating
+          (and occasionally designing) exceptional digital experiences that are fast,
+          accessible, visually appealing, and responsive. Even though I have been
+          creating web applications for over 7 years, I still love it as if it was
+          something new.
+          </p>
+
+          <div class="space-y-2">
+            <div class="flex items-center text-gray-600 dark:text-gray-400">
+              <img
+                src="../images-6/icon.png"
+                alt="Location"
+                class="w-5 h-5 mr-2 dark:invert"
+              />
+              <span>Abbottabad, Pakistan</span>
+            </div>
+            <div class="flex items-center text-gray-600 dark:text-gray-400">
+              <div
+                class="w-2.5 h-2.5 bg-green-500 rounded-full mr-3 animate-pulse"
+              ></div>
+              <span>Available for new projects</span>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 pt-2">
+            <a
+              href="#"
+              class="p-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+            >
+              <img
+                src="../images-6/Icon2.png"
+                alt="GitHub"
+                class="w-6 h-6 dark:invert"
+              />
+            </a>
+            <a
+              href="#"
+              class="p-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+            >
+              <img
+                src="../images-6/Icon3.png"
+                alt="Twitter"
+                class="w-6 h-6 dark:invert"
+              />
+            </a>
+            <a
+              href="#"
+              class="p-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+            >
+              <img
+                src="../images-6/Icon4.png"
+                alt="Figma"
+                class="w-6 h-6 dark:invert"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="w-full md:w-5/12 flex justify-center md:justify-end">
+          <div class="relative w-72 h-80 md:w-80 md:h-96">
+            <div
+              class="absolute bottom-[-20px] right-[-20px] md:bottom-[-40px] md:right-[-40px] w-full h-full bg-gray-200 dark:bg-gray-700 z-0"
+            ></div>
+            <img
+              src="../images-6/profile.png"
+              alt="Ahsan Profile"
+              class="relative w-full h-full object-cover border-8 border-white dark:border-gray-950 shadow-2xl z-10"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="about"
+      class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center mb-12">
+          <span
+            class="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-5 py-1 rounded-full text-sm font-medium"
+            >About me</span
+          >
+        </div>
+
+        <div class="flex flex-col md:flex-row items-start gap-16">
+          <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+            <div class="relative">
+              <div
+                class="absolute top-[-20px] left-[-20px] w-full h-full bg-gray-200 dark:bg-gray-700 z-0"
+              ></div>
+              <img
+                src="../images-6/Pic Container.png"
+                alt="Ahsan Coding"
+                class="relative w-[400px] h-[480px] object-cover border-8 border-white dark:border-gray-950 shadow-lg z-10"
+              />
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 space-y-6">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-50">
+              Curious about me? Here you have it:
+            </h2>
+
+            <div class="space-y-4 text-gray-600 dark:text-gray-400">
+              <p>
+        I'm a passionate, self-proclaimed designer who specializes in full stack development (React.js & 
+        Node.js). I am very enthusiastic about bringing the technical and visual aspects of digital products
+        to life. User experience, pixel perfect design, and writing clear, readable, highly performant code
+        matters to me.
+              </p>
+
+              <p>
+        I began my journey as a web developer in 2015, and since then, I've continued
+        to grow and evolve as a developer, taking on new challenges and learning the
+        latest technologies along the way. Now, in my early thirties, 7 years after
+        starting my web development journey, I'm building cutting-edge web
+        applications using modern technologies such as Next.js, TypeScript, Nestjs,
+        Tailwindcss, Supabase and much more.
+              </p>
+
+              <p>
+        I am very much a progressive thinker and enjoy working on products end to end,
+        from ideation all the way to development.
+              </p>
+
+              <p>
+        When I'm not in full-on developer mode, you can find me hovering around on
+        Twitter or on Indie Hacker, witnessing the journey of early startups or
+        enjoying some free time. You can follow me on Twitter where I share
+        tech-related bites and build in public, or you can follow me on GitHub.
+              </p>
+
+              <p>Finally, some quick bits about me.</p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+                <li class="flex items-center space-x-2">
+                  <span
+                    class="w-1.5 h-1.5 bg-gray-600 dark:bg-gray-400 rounded-full"
+                  ></span>
+                  <span>B.E in Computer Engineering</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <span
+                    class="w-1.5 h-1.5 bg-gray-600 dark:bg-gray-400 rounded-full"
+                  ></span>
+                  <span>Avid Learner</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <span
+                    class="w-1.5 h-1.5 bg-gray-600 dark:bg-gray-400 rounded-full"
+                  ></span>
+                  <span>Full Time freelancer</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <span
+                    class="w-1.5 h-1.5 bg-gray-600 dark:bg-gray-400 rounded-full"
+                  ></span>
+                  <span>Aspiring pakistani Hacker</span>
+                </li>
+              </div>
+
+              <p class="pt-2">
+            One last thing, I'm available for freelance work, so feel free to reach out
+            and say hello! I promise I don't bite 😉
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="py-20 bg-white dark:bg-gray-950 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center mb-16">
+          <span
+            class="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-5 py-1 rounded-full text-sm font-medium mb-4"
+            >Skills</span
+          >
+          <p class="text-xl text-gray-600 dark:text-gray-400 text-center">
+            The skills, tools and technologies I am really good at:
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-y-12 gap-x-8"
+        >
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-javscript.svg"
+              alt="JavaScript"
+              class="w-16 h-16 transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Javascript</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-typescript.svg"
+              alt="TypeScript"
+              class="w-16 h-16 transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Typescript</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-react.svg"
+              alt="React"
+              class="w-16 h-16 transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">React</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-nextjs.svg"
+              alt="Next.js"
+              class="w-16 h-16 dark:invert transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Next.js</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-nodejs.svg"
+              alt="Node.js"
+              class="w-16 h-16 transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Node.js</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-express.svg"
+              alt="Express"
+              class="w-16 h-16 dark:invert transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Express.js</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-nest.svg"
+              alt="Nest"
+              class="w-16 h-16 transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Nest.js</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-socket.svg"
+              alt="Socket.io"
+              class="w-16 h-16 dark:invert transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Socket.io</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-postgresql.svg"
+              alt="PostgreSQL"
+              class="w-16 h-16 transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">PostgreSQL</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-mongodb.svg"
+              alt="MongoDB"
+              class="w-16 h-16 transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">MongoDB</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-sass.svg"
+              alt="Sass"
+              class="w-16 h-16 transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Sass/Scss</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-tailwindcss.svg"
+              alt="Tailwind"
+              class="w-16 h-16 transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Tailwindcss</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-figma.svg"
+              alt="Figma"
+              class="w-16 h-16 transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Figma</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-cypress.svg"
+              alt="Cypress"
+              class="w-16 h-16 dark:invert transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Cypress</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-storybook.svg"
+              alt="Storybook"
+              class="w-16 h-16 transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Storybook</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 group">
+            <img
+              src="../images-6/icon-git.svg"
+              alt="Git"
+              class="w-16 h-16 dark:invert transition-transform group-hover:scale-110"
+            />
+            <span class="text-gray-600 dark:text-gray-400">Github</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center mb-12">
+          <span
+            class="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-5 py-1 rounded-full text-sm font-medium mb-4"
+            >Experience</span
+          >
+          <p class="text-xl text-gray-600 dark:text-gray-400 text-center">
+            Here is a quick summary of my most recent experiences:
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          <div
+            class="bg-white dark:bg-gray-950 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col md:flex-row gap-6 md:gap-8"
+          >
+            <div class="flex-shrink-0">
+              <img
+                src="../images-6/logo-upwork.png"
+                alt="Company Logo"
+                class="h-8 w-auto"
+              />
+            </div>
+            <div class="flex-grow space-y-4">
+              <div
+                class="flex flex-col md:flex-row md:justify-between md:items-center"
+              >
+                <h3
+                  class="text-xl font-semibold text-gray-900 dark:text-gray-50"
+                >
+                  Sr. Frontend Developer
+                </h3>
+                <span
+                  class="text-gray-500 dark:text-gray-400 text-sm md:hidden mt-1"
+                  >Nov 2021 - Present</span
+                >
+              </div>
+              <ul
+                class="list-disc list-outside ml-4 space-y-2 text-gray-600 dark:text-gray-400"
+              >
+                <li>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </li>
+                <li>
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </li>
+                <li>
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur.
+                </li>
+                <li>
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                  qui officia deserunt mollit anim id est laborum.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="hidden md:block text-gray-500 dark:text-gray-400 text-sm whitespace-nowrap"
+            >
+              Nov 2021 - Present
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-950 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col md:flex-row gap-6 md:gap-8"
+          >
+            <div class="flex-shrink-0">
+              <img
+                src="../images-6/logo-upwork.png"
+                alt="Company Logo"
+                class="h-8 w-auto"
+              />
+            </div>
+            <div class="flex-grow space-y-4">
+              <div
+                class="flex flex-col md:flex-row md:justify-between md:items-center"
+              >
+                <h3
+                  class="text-xl font-semibold text-gray-900 dark:text-gray-50"
+                >
+                  Team Lead
+                </h3>
+                <span
+                  class="text-gray-500 dark:text-gray-400 text-sm md:hidden mt-1"
+                  >Jul 2017 - Oct 2021</span
+                >
+              </div>
+              <ul
+                class="list-disc list-outside ml-4 space-y-2 text-gray-600 dark:text-gray-400"
+              >
+                <li>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium.
+                </li>
+                <li>
+                  Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+                  et quasi architecto beatae vitae dicta sunt explicabo.
+                </li>
+                <li>
+                  Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                  odit aut fugit.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="hidden md:block text-gray-500 dark:text-gray-400 text-sm whitespace-nowrap"
+            >
+              Jul 2017 - Oct 2021
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-950 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col md:flex-row gap-6 md:gap-8"
+          >
+            <div class="flex-shrink-0">
+              <img
+                src="../images-6/logo-upwork.png"
+                alt="Company Logo"
+                class="h-8 w-auto"
+              />
+            </div>
+            <div class="flex-grow space-y-4">
+              <div
+                class="flex flex-col md:flex-row md:justify-between md:items-center"
+              >
+                <h3
+                  class="text-xl font-semibold text-gray-900 dark:text-gray-50"
+                >
+                  Full Stack Developer
+                </h3>
+                <span
+                  class="text-gray-500 dark:text-gray-400 text-sm md:hidden mt-1"
+                  >Dec 2015 - May 2017</span
+                >
+              </div>
+              <ul
+                class="list-disc list-outside ml-4 space-y-2 text-gray-600 dark:text-gray-400"
+              >
+                <li>
+                  At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                  blanditiis praesentium voluptatum deleniti atque corrupti quos
+                  dolores et quas molestias excepturi sint occaecati cupiditate
+                  non provident, similique sunt in culpa qui officia deserunt
+                  mollitia animi, id est laborum et dolorum fuga.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="hidden md:block text-gray-500 dark:text-gray-400 text-sm whitespace-nowrap"
+            >
+              Dec 2015 - May 2017
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="work"
+      class="py-20 bg-white dark:bg-gray-950 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center mb-16">
+          <span
+            class="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-5 py-1 rounded-full text-sm font-medium mb-4"
+            >Work</span
+          >
+          <p class="text-xl text-gray-600 dark:text-gray-400 text-center">
+            Some of the noteworthy projects I have built:
+          </p>
+        </div>
+
+        <div class="space-y-24">
+          <div
+            class="flex flex-col lg:flex-row rounded-2xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-800"
+          >
+            <div
+              class="lg:w-1/2 bg-gray-50 dark:bg-gray-800 p-12 flex items-center justify-center"
+            >
+              <img
+                src="../images-6/Picture.png"
+                alt="Project Preview"
+                class="rounded-xl shadow-xl hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div
+              class="lg:w-1/2 p-12 bg-white dark:bg-gray-950 flex flex-col justify-center"
+            >
+              <h3
+                class="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-6"
+              >
+                Fiskil
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante
+                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                curae.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >React</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Next.js</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Typescript</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Nest.js</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Tailwindcss</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Figma</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Cypress</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Storybook</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Git</span
+                >
+              </div>
+              <a
+                href="#"
+                class="inline-block p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors w-fit"
+              >
+                <img
+                  src="../images-6/Icon Button.png"
+                  alt="Open Project"
+                  class="w-8 h-8 dark:invert"
+                />
+              </a>
+            </div>
+          </div>
+          <div
+            class="flex flex-col lg:flex-row rounded-2xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-800"
+          >
+            <div
+              class="lg:w-1/2 bg-gray-50 dark:bg-gray-800 p-12 flex items-center justify-center"
+            >
+              <img
+                src="../images-6/Picture.png"
+                alt="Project Preview"
+                class="rounded-xl shadow-xl hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div
+              class="lg:w-1/2 p-12 bg-white dark:bg-gray-950 flex flex-col justify-center"
+            >
+              <h3
+                class="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-6"
+              >
+                Fiskil
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante
+                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                curae.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >React</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Next.js</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Typescript</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Nest.js</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Tailwindcss</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Figma</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Cypress</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Storybook</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Git</span
+                >
+              </div>
+              <a
+                href="#"
+                class="inline-block p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors w-fit"
+              >
+                <img
+                  src="../images-6/Icon Button.png"
+                  alt="Open Project"
+                  class="w-8 h-8 dark:invert"
+                />
+              </a>
+            </div>
+          </div>
+          <div
+            class="flex flex-col lg:flex-row rounded-2xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-800"
+          >
+            <div
+              class="lg:w-1/2 bg-gray-50 dark:bg-gray-800 p-12 flex items-center justify-center"
+            >
+              <img
+                src="../images-6/Picture.png"
+                alt="Project Preview"
+                class="rounded-xl shadow-xl hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div
+              class="lg:w-1/2 p-12 bg-white dark:bg-gray-950 flex flex-col justify-center"
+            >
+              <h3
+                class="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-6"
+              >
+                Fiskil
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante
+                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                curae.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >React</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Next.js</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Typescript</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Nest.js</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Tailwindcss</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Figma</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Cypress</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Storybook</span
+                >
+                <span
+                  class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium"
+                  >Git</span
+                >
+              </div>
+              <a
+                href="#"
+                class="inline-block p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors w-fit"
+              >
+                <img
+                  src="../images-6/Icon Button.png"
+                  alt="Open Project"
+                  class="w-8 h-8 dark:invert"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="testimonials"
+      class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center mb-16">
+          <span
+            class="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-5 py-1 rounded-full text-sm font-medium mb-4"
+            >Testimonials</span
+          >
+          <p class="text-xl text-gray-600 dark:text-gray-400 text-center">
+            Nice things people said about me:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-white dark:bg-gray-950 p-8 rounded-2xl shadow-lg flex flex-col items-center text-center"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-6"
+            >
+              <img
+                src="../images-6/icon-user.png"
+                alt="User"
+                class="w-8 h-8 dark:invert opacity-60"
+              />
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+        "Job well done! I am really impressed. He is very very good at what he
+        does :) I would recommend Sagar and will rehire in the future for
+        Frontend development."
+            </p>
+            <div class="mt-auto">
+              <h4 class="font-bold text-gray-900 dark:text-gray-50">
+                John Doe
+              </h4>
+              <p class="text-sm text-gray-500 dark:text-gray-500">
+                Founder - xyz.com
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-950 p-8 rounded-2xl shadow-lg flex flex-col items-center text-center"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-6"
+            >
+              <img
+                src="../images-6/icon-user.png"
+                alt="User"
+                class="w-8 h-8 dark:invert opacity-60"
+              />
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+            "Job well done! I am really impressed. He is very very good at what he
+            does :) I would recommend Sagar and will rehire in the future for
+            Frontend development."
+            </p>
+            <div class="mt-auto">
+              <h4 class="font-bold text-gray-900 dark:text-gray-50">
+                John Doe
+              </h4>
+              <p class="text-sm text-gray-500 dark:text-gray-500">
+                Founder - xyz.com
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-950 p-8 rounded-2xl shadow-lg flex flex-col items-center text-center"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-6"
+            >
+              <img
+                src="../images-6/icon-user.png"
+                alt="User"
+                class="w-8 h-8 dark:invert opacity-60"
+              />
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+            "Job well done! I am really impressed. He is very very good at what he
+             does :) I would recommend Sagar and will rehire in the future for
+             Frontend development."
+            </p>
+            <div class="mt-auto">
+              <h4 class="font-bold text-gray-900 dark:text-gray-50">
+                John Doe
+              </h4>
+              <p class="text-sm text-gray-500 dark:text-gray-500">Freelancer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="contact"
+      class="py-20 bg-white dark:bg-gray-950 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="flex flex-col items-center mb-8">
+          <span
+            class="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-5 py-1 rounded-full text-sm font-medium mb-4"
+            >Contact</span
+          >
+          <p class="text-xl text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit for on to the body<br>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center space-y-4 mb-12">
+          <div class="flex items-center space-x-4">
+            <img
+              src="../images-6/email.png"
+              alt="Email"
+              class="w-8 h-8 dark:invert"
+            />
+            <a
+              href="mailto:itsmeahsan@gmail.com"
+              class="text-xl md:text-4xl font-bold text-gray-900 dark:text-gray-50 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+              >itsmeahsan@gmail.com</a
+            >
+            <button
+              class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+              title="Copy Email"
+            >
+              <img
+                src="../images-6/box.png"
+                alt="Copy"
+                class="w-8 h-8 dark:invert"
+              />
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <img
+              src="../images-6/mob.png"
+              alt="Phone"
+              class="w-8 h-8 dark:invert"
+            />
+            <span
+              class="text-xl md:text-4xl font-bold text-gray-900 dark:text-gray-50"
+              >+92 3144490615</span
+            >
+            <button
+              class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+              title="Copy Phone"
+            >
+              <img
+                src="../images-6/box.png"
+                alt="Copy"
+                class="w-8 h-8 dark:invert"
+              />
+            </button>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <p class="text-gray-600 dark:text-gray-400">
+            You may also find me on these platforms!
+          </p>
+          <div class="flex justify-center space-x-4">
+            <a
+              href="#"
+              class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+            >
+              <img
+                src="../Images-6/Icon2.png"
+                alt="GitHub"
+                class="w-6 h-6 dark:invert"
+              />
+            </a>
+            <a
+              href="#"
+              class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+            >
+              <img
+                src="../Images-6/Icon3.png"
+                alt="Twitter"
+                class="w-6 h-6 dark:invert"
+              />
+            </a>
+            <a
+              href="#"
+              class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+            >
+              <img
+                src="../Images-6/Icon4.png"
+                alt="Figma"
+                class="w-6 h-6 dark:invert"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer
+      class="py-6 bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center"
+      >
+        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+          <span class="mr-2">© 2026 | Designed and coded with</span>
+          <span class="text-red-500 animate-pulse mr-2">❤️</span>
+          <span>by Soha Muzammil</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
