@@ -1,4 +1,4 @@
-# Codematics Internship 2026 – Frontend tasks Portfolio
+# Codematics Internship 2026 – Frontend tasks Logbook
 
 Welcome to my digital logbook! This repository showcases my journey as a **Web Development Intern at Codematics**. It tracks my progress from mastering core HTML/CSS 
 structures to building complex, high-fidelity responsive designs and interactive JavaScript applications.
@@ -43,7 +43,7 @@ To maintain professional standards, the project is organized into modular direct
 * **Focus:** Theme persistence and modern navigation.
 * **Challenge:** Implementing a functional Dark/Light mode toggle using JavaScript `localStorage` for a seamless user experience.
 
-### **07 | Dynamic Adder (Dev Toolkit)**
+### **07 | Dev Toolkit**
 * **Focus:** Functional JavaScript logic and **Glassmorphism UI**.
 * **Challenge:** Creating an interactive toolkit with advanced JS logic (BMI calculation, Age-to-Days conversion, and Array handling) wrapped in a modern transparent aesthetic.
 * **Logic:** Implemented complex event handling to manage real-time updates and `NaN` states, paired with a modern transparent UI design.
