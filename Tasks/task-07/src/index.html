@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Adder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../../../index.html" class="back-btn">← Back to Logbook</a>
+    <h1 class="main-title">Dev Toolkit</h1>
+
+    <div class="card">
+        <h2>Task 1 — Age to Days</h2>
+        <h5>Select Birth Date:</h5>
+        <input type="date" id="dob">
+        <p id="ageResult">Total Days: 0</p>
+    </div>
+
+    <div class="card">
+        <h2>Task 2 — Hours to Seconds</h2>
+        <input type="number" id="hrs" placeholder="Enter hours...">
+        <p id="hrsResult">Result: 0s</p>
+    </div>
+
+<div class="card">
+    <h2>Task 3 — Next Number Finder</h2>
+    <div class="sub-section">
+        <p>Scenario A: Find in Array [10, 20, 30, 40, 50]</p>
+        <input type="number" id="arrayNum" placeholder="Enter 10, 20, 30, or 40">
+        <button onclick="findNextInArray()">Find Next in Array</button>
+    </div>
+    <div class="sub-section">
+        <p>Scenario B: Integer/Float Logic</p>
+        <input type="text" id="singleNum" placeholder="Enter an int (e.g. 5) or float (e.g. 5.5)">
+        <button onclick="findNextSingle()">Find Mathematical Next</button>
+    </div>
+    <p id="nextResult">Result: -</p>
+</div>
+
+<div class="card">
+    <h2>Task 4 — Name Capitalizer</h2>
+    <input type="text" id="nameInput" placeholder="Enter name in lowercase only" oninput="capitalizeName()">
+    <p id="nameResult">Formatted: -</p>
+</div>
+
+    <div class="card">
+        <h2>Task 5 — BMI Calculator</h2>
+        <input type="number" id="weight" placeholder="Weight (kg)">
+        <input type="number" id="height" placeholder="Height (meters)">
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <p id="bmiResult">BMI: -</p>
+    </div>
+
+    <div class="card">
+        <h2>Task 6 — Random Array Generator</h2>
+        <button id="generateArray">Generate & Pick Edges</button>
+        <p id="arrayOutput">Array: []</p>
+        <p id="firstElement"></p>
+        <p id="lastElement"></p>
+    </div>
+
+    <div class="card">
+        <h2>Task 7 — Event Handling Addition</h2>
+        <input type="number" id="num1" placeholder="First Number (Box 1)">
+        <input type="number" id="num2" placeholder="Second Number (Box 2)">
+        <input type="text" id="sumResult" placeholder="Result (Box 3)" readonly>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
