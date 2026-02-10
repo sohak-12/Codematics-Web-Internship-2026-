@@ -20,13 +20,13 @@ The design features a distinct two-column layout: a descriptive left-hand panel 
 
 ---
 
-## How to Run the Project
-This task is contained within a subfolder of the main repository:
+## Project Setup
+Since this project is part of a larger repository, follow these steps to view it:
 
-1.  **Download:** Download or clone the main repository.
-2.  **Navigate:** Go to the folder: `Tasks/Task-03/`.
-3.  **Launch:** Open the main HTML file in your browser.
-4.  **Note:** Keep the `/Images` folder in the same directory to ensure the logo and favicon icons load correctly.
+1. **Clone/Download:** Download the full repository ZIP or clone it via Git.
+2. **Navigate:** Go to the directory: `Tasks/Task-04/src/`.
+3. **Launch:** Open `index.html` in your browser. 
+    * *Note: Ensure the `Images-3` directory (located at the parent level of `src`) is present to load the favicon, club logos, and branding icons correctly.*
 
 ---
 
