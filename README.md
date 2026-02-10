@@ -31,9 +31,13 @@ To ensure clarity and scalability, the repository is organized as follows:
 * **Focus:** Advanced CSS techniques.
 * **Challenge:** Utilizing CSS `clip-path` to create modern diagonal sections and using CSS Grid for organized, multi-section layouts.
 
-### **Task 05: Keefer Law Firm Website Replica**
-* **Focus:** Professional-grade responsiveness.
-* **Challenge:** A high-fidelity clone built using **Tailwind CSS** and **Pure HTML/CSS**. Includes complex serif typography, textured backgrounds, and a mobile-first philosophy. 
+### **Task 05: Keefer Law Firm Website**
+* **Focus:** Professional-grade responsiveness and high-fidelity layout replication.
+* **Task 05 (i) - Pure HTML/CSS:** Built using vanilla CSS to demonstrate a deep understanding of Flexbox, Grid, and custom
+                                   media queries without external libraries.
+* **Task 05 (ii) - Tailwind CSS:** Developed using a utility-first framework to showcase rapid UI development and custom
+                                   theme configuration for professional branding.
+* **Challenge:** Implementing sophisticated serif typography and textured backgrounds while ensuring a seamless mobile-first experience across both styling methodologies.
 
 ### **Task 06: Portfolio Website**
 * **Focus:** Logic-based styling and user experience.
