@@ -20,11 +20,11 @@ specific branding assets, app previews, and section illustrations to create a hi
 
 ## Project Setup
 Since this project is part of a larger repository, follow these steps to view it:
-
 1.  **Clone/Download:** Download the full repository ZIP or clone it via Git.
-2.  **Navigate:** Go to the directory: `Tasks/Task 02/`.
+2.  **Navigate:** Go to the directory: `Tasks/task-02/src/`.
 3.  **Launch:** Open `index.html` in your browser. 
-    * *Note: Ensure the `/Images` folder stays in the same directory as the HTML file, as the layout relies on these assets.*
+    * *Note: Ensure the `Images-2` directory (located at the parent level of src) remains intact. The layout relies on this folder
+       for the logo, favicon, and other visual assets to load correctly.*
 
 ---
 
