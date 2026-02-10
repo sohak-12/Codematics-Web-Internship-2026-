@@ -1,67 +1,71 @@
-# Codematics Internship 2026 – Frontend Tasks
-This repository is a curated collection of frontend tasks I am completing during my **Web Development Internship at Codematics**, 
-starting from fundamental HTML structures to complex, responsive web designs.
+# Codematics Internship 2026 – Frontend Portfolio
+
+Welcome to my digital logbook! This repository showcases my journey as a **Web Development Intern at Codematics**. It tracks my progress from mastering core HTML/CSS 
+structures to building complex, high-fidelity responsive designs and interactive JavaScript applications.
 
 ---
 
-## Repository Structure 
+## 📂 Repository Structure & Navigation
 
-To ensure clarity and scalability, the repository is organized as follows:
-* **Task-Specific Folders:** Each milestone is contained in its own directory.
-* **Documentation:** Every task includes a dedicated README explaining the requirements and implementation details.
-* **Asset Management:** All images, icons, and screenshots are organized within their respective project folders.
+To maintain professional standards, the project is organized into modular directories:
 
----
-
-## Tasks Overview 
-
-### **Task 01: Basic web page layout using semantic HTML**
-* **Focus:** Core structure and pixel alignment.
-* **Challenge:** Building a full layout using **zero `<div>` tags**, relying strictly on semantic HTML5 elements for better SEO and accessibility.
-
-### **Task 02: Landing page layout using images**
-* **Focus:** Design replication and asset management.
-* **Challenge:** Recreating a reference design with heavy image usage, focusing on proper pathing and layout alignment.
-
-### **Task 03: Submission form layout**
-* **Focus:** UI/UX and Form Elements.
-* **Challenge:** Building a clean, professional form layout. Highlights include custom-styled inputs and matching design specifications closely.
-
-### **Task 04: Landing page with diagonal cut design**
-* **Focus:** Advanced CSS techniques.
-* **Challenge:** Utilizing CSS `clip-path` to create modern diagonal sections and using CSS Grid for organized, multi-section layouts.
-
-### **Task 05: Keefer Law Firm Website**
-* **Focus:** Professional-grade responsiveness and high-fidelity layout replication.
-* **Task 05 (i) - Pure HTML/CSS:** Built using vanilla CSS to demonstrate a deep understanding of Flexbox, Grid, and custom
-                                   media queries without external libraries.
-* **Task 05 (ii) - Tailwind CSS:** Developed using a utility-first framework to showcase rapid UI development and custom
-                                   theme configuration for professional branding.
-* **Challenge:** Implementing sophisticated serif typography and textured backgrounds while ensuring a seamless mobile-first experience across both styling methodologies.
-
-### **Task 06: Portfolio Website**
-* **Focus:** Logic-based styling and user experience.
-* **Challenge:** Building a modern portfolio with a functional Light Mode toggle. Used JavaScript for theme persistence (localStorage) and Tailwind CSS for seamless transitions.
-                 Features a sticky navbar, skills grid, and a responsive experience timeline.
-
-> *Note: This repository is a work in progress. New tasks are added as the internship continues.*
+* **Task Folders:** Each milestone is self-contained
+* **Source Code:** All core development files are located within the `src` folder of each task.
+* **Asset Management:** Images and media are organized in dedicated folders parallel to the `src` folder to ensure clean, relative pathing.
+* **Documentation:** Every task includes its own `README.md` for specific technical requirements and implementation details.
 
 ---
 
-## 💻 Technologies Used
+## 🚀 Tasks Overview
 
-* **HTML5 & CSS3:** Semantic structure, Flexbox, and CSS Grid.
-* **Tailwind CSS:** For rapid, utility-first responsive styling.
-* **VS Code:** Primary development environment.
-* **Git & GitHub:** Version control and project documentation.
+### **01 | Web Layout Foundation**
+* **Focus:** Semantic HTML5 and pixel-perfect alignment.
+* **Challenge:** Building a robust layout using **zero `<div>` tags** to prioritize SEO and accessibility.
+
+### **02 | Visual Landing Page**
+* **Focus:** Replicating high-fidelity designs with heavy asset management.
+* **Challenge:** Handling complex image pathing and maintaining layout integrity across multiple sections.
+
+### **03 | Submission Workflow**
+* **Focus:** UI/UX of form elements and professional data entry layouts.
+* **Challenge:** Creating custom-styled inputs and validation-ready structures to match design specifications.
+
+### **04 | Diagonal Cut Design**
+* **Focus:** Advanced CSS shapes and modern layout techniques.
+* **Challenge:** Utilizing CSS `clip-path` for diagonal sectioning and CSS Grid for structured content.
+
+### **05 | Keefer Law Firm (Dual Implementation)**
+* **Task 05 (i) - Pure HTML/CSS:** Demonstrating mastery of Flexbox and Grid without external frameworks.
+* **Task 05 (ii) - Tailwind CSS:** Leveraging utility-first classes for rapid development and custom branding.
+* **Focus:** Sophisticated typography and professional-grade responsiveness.
+
+### **06 | Stateful Portfolio**
+* **Focus:** Theme persistence and modern navigation.
+* **Challenge:** Implementing a functional Dark/Light mode toggle using JavaScript `localStorage` for a seamless user experience.
+
+### **07 | Dynamic Adder (Dev Toolkit)**
+* **Focus:** Functional JavaScript logic and **Glassmorphism UI**.
+* **Challenge:** Creating an interactive toolkit with advanced JS logic (BMI calculation, Age-to-Days conversion, and Array handling) wrapped in a modern transparent aesthetic.
+* **Logic:** Implemented complex event handling to manage real-time updates and `NaN` states, paired with a modern transparent UI design.
+
+---
+
+## 🛠️ Technologies & Tools
+
+* **Languages:** HTML5, CSS3, JavaScript (ES6+).
+* **Frameworks:** Tailwind CSS.
+* **Design Patterns:** Glassmorphism, Responsive Design, Mobile-First approach.
+* **Tools:** VS Code, Git, GitHub.
 
 ---
 
 ## ✍️ Author
 
-**Soha Muzammil** Intern at Codematics
+**Soha Muzammil** *Intern at Codematics*
 
 ---
 
-### 💡 Project Notes
-All tasks are implemented following the instructions and design mockups provided by the Codematics team. The focus throughout this internship is on doing clean, readable, and maintainable tasks.
+> [!NOTE]
+> This logbook is dynamically updated as I progress through my internship milestones. Each folder represents a step forward in my technical growth.
+
+---
