@@ -20,13 +20,14 @@ specifications.
 
 ---
 
-## HProject Setup
-This task is located within the `src` directory of the Task 04 folder:
+## Project Setup
+Since this project is part of a larger repository, follow these steps to view it:
 
-1.  **Download:** Access the main repository ZIP or clone it.
-2.  **Navigate:** Go to `Tasks/Task 04 - 28 January 2026/src/`.
-3.  **Launch:** Open `index.html` in your browser.
-4.  **Note:** Ensure the `/Images` directory is present to load the favicon, club logos, and branding icons.
+1. **Clone/Download:** Download the full repository ZIP or clone it via Git.
+2. **Navigate:** Go to the directory: `Tasks/Task 04 - 28 January 2026/src/`.
+3. **Launch:** Open `index.html` in your browser. 
+    * *Note: Ensure the `Images-4` directory (located at the parent level of `src`) is present to load the favicon, club logos, and branding icons
+       correctly.*
 
 ---
 
