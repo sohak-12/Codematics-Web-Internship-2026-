@@ -44,10 +44,15 @@ To maintain professional standards, the project is organized into modular direct
 * **Challenge:** Implementing a functional Dark/Light mode toggle using JavaScript `localStorage` for a seamless user experience.
 
 ### **07 | Dev Toolkit**
-* **Focus:** Functional JavaScript logic and **Glassmorphism UI**.
+* **Focus:** Functional JavaScript logic
 * **Challenge:** Creating an interactive toolkit with advanced JS logic (BMI calculation, Age-to-Days conversion, and Array handling) wrapped in a modern transparent aesthetic.
 * **Logic:** Implemented complex event handling to manage real-time updates and `NaN` states, paired with a modern transparent UI design.
 
+### **08 | Tasks Launchpad**
+* **Focus:** JavaScript Logic Integration
+* **Challenge:** Developing a unified interface to host 6 distinct functional modules (Clock, Calculator, Carousel, etc.) within a single interactive environment.
+* **Logic:** Implementing dynamic `iframe` routing and state management to switch between specialized JS utilities without page refreshes.
+  
 ---
 
 ## 🛠️ Technologies & Tools
