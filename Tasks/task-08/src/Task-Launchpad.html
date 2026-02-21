@@ -45,7 +45,7 @@
     position: fixed;
     top: 20px;
     left: 20px;
-    padding: 10px 22px;
+    padding: 6px 16px; 
     background: rgba(0, 0, 0, 0.5); 
     backdrop-filter: blur(10px);
     color: white;
@@ -54,6 +54,8 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: 0.3s ease;
     z-index: 1000;
+    font-size: 13px; 
+}
   }
 
   .back-btn:hover {
@@ -185,14 +187,14 @@
       menuButtons.forEach(b => b.classList.remove('project-active'));
       btn.classList.add('project-active');
 
-      const tasks = {
-        'carousel': { src: 'carousel.html', path: 'Tasks\task-08\src\Carousel.html' },
-        'calc': { src: 'calculator.html', path: 'Tasks\task-08\src\calculator.html' },
-        'temp': { src: 'temperature_converter.html', path: 'Tasks\task-08\src\temperature_converter.html' },
-        'clock': { src: 'digital_clock.html', path: 'Tasks\task-08\src\Digital_clock.html' },
-        'password': { src: 'password_generator.html', path: 'Tasks\task-08\src\password_generator.html' },
-        'todo': { src: 'to_do_list.html', path: 'Tasks\task-08\src\to_do_list.html' }
-      };
+    const tasks = {
+    'carousel': { src: 'Carousel.html', path: 'Tasks/task-08/src/Carousel.html' },
+    'calc':     { src: 'Calculator.html', path: 'Tasks/task-08/src/Calculator.html' },
+    'temp':     { src: 'Temperature_converter.html', path: 'Tasks/task-08/src/Temperature_converter.html' },
+    'clock':    { src: 'Digital_clock.html', path: 'Tasks/task-08/src/Digital_clock.html' },
+    'password': { src: 'Password_generator.html', path: 'Tasks/task-08/src/Password_generator.html' },
+    'todo':     { src: 'To_do_list.html', path: 'Tasks/task-08/src/To_do_list.html' }
+    };
 
       frame.classList.add('hidden');
       placeholder.classList.remove('hidden');
@@ -206,4 +208,5 @@
     }
   </script>
 </body>
+
 </html>
