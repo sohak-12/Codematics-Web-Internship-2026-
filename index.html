@@ -11,12 +11,19 @@
 
     <div class="bg-overlay"></div>
     <div class="noise-overlay"></div>
+    <canvas id="matrix-canvas"></canvas>
 
     <!-- Floating particles -->
     <div class="particles">
         <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
     </div>
+
+    <!-- Ambient orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
     <div class="main-container">
 
@@ -27,56 +34,76 @@
                     <span class="tag-dot"></span>
                     DIGITAL LOGBOOK — CODEMATICS 2026
                 </div>
-                <h1 class="hero-name">Soha <span class="accent">Muzammil</span></h1>
-                <p class="hero-sub">Frontend &amp; Fullstack Development Journey</p>
+
+                <div class="hero-name-wrap">
+                    <h1 class="hero-name">Soha <span class="accent glitch" data-text="Muzammil">Muzammil</span></h1>
+                    <div class="name-underline"></div>
+                </div>
+
+                <p class="hero-sub">
+                    <span class="typed-text"></span><span class="cursor-blink">|</span>
+                </p>
+
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-num">10</span>
+                        <span class="stat-num counter" data-target="10">0</span>
                         <span class="stat-label">Tasks Done</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat">
-                        <span class="stat-num">8</span>
+                        <span class="stat-num counter" data-target="8">0</span>
                         <span class="stat-label">Weeks Total</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat">
-                        <span class="stat-num">7</span>
+                        <span class="stat-num counter" data-target="7">0</span>
                         <span class="stat-label">Weeks Done</span>
                     </div>
                 </div>
+
                 <div class="progress-bar-wrap">
                     <div class="progress-bar-label">
                         <span>INTERNSHIP PROGRESS</span>
                         <span>7 / 8 Weeks &mdash; 28 Jan → 24 Mar</span>
                     </div>
                     <div class="progress-track">
-                        <div class="progress-fill" style="width: 87.5%"></div>
+                        <div class="progress-fill" style="width: 87.5%">
+                            <div class="progress-shine"></div>
+                        </div>
                     </div>
                     <div class="progress-pct">87.5%</div>
                 </div>
             </div>
+
             <div class="hero-right">
                 <div class="live-badge">
                     <span class="pulse-ring"></span>
                     <span class="pulse-core"></span>
                     LIVE
                 </div>
+                <div class="hero-ring-wrap">
+                    <svg class="ring-svg" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="50" class="ring-track"/>
+                        <circle cx="60" cy="60" r="50" class="ring-fill" id="heroRing"/>
+                    </svg>
+                    <div class="ring-inner">
+                        <span class="ring-pct">87.5%</span>
+                        <span class="ring-label">DONE</span>
+                    </div>
+                </div>
             </div>
         </header>
 
-        <!-- SECTION LABEL -->
-        <div class="section-label">
-            <span class="line"></span>
-            <span class="label-text">PROJECT ARCHIVE</span>
-            <span class="line"></span>
-        </div>
-
         <!-- TASK GRID -->
-        <main class="task-grid">
+        <main class="task-grid" id="taskGrid">
 
-            <a href="Tasks\task-01\t1.html" class="card">
+            <a href="Tasks/task-01/t1.html" class="card" data-index="0">
                 <div class="card-glow"></div>
+                <div class="card-scan"></div>
+                <div class="card-corner tl"></div>
+                <div class="card-corner tr"></div>
+                <div class="card-corner bl"></div>
+                <div class="card-corner br"></div>
                 <div class="card-header">
                     <span class="card-num">01</span>
                     <span class="card-date">26 JAN</span>
@@ -89,8 +116,11 @@
                 </div>
             </a>
 
-            <a href="Tasks\task-02\src\index.html" class="card">
+            <a href="Tasks/task-02/src/index.html" class="card" data-index="1">
                 <div class="card-glow"></div>
+                <div class="card-scan"></div>
+                <div class="card-corner tl"></div><div class="card-corner tr"></div>
+                <div class="card-corner bl"></div><div class="card-corner br"></div>
                 <div class="card-header">
                     <span class="card-num">02</span>
                     <span class="card-date">26 JAN</span>
@@ -103,8 +133,11 @@
                 </div>
             </a>
 
-            <a href="Tasks\task-03\src\index.html" class="card">
+            <a href="Tasks/task-03/src/index.html" class="card" data-index="2">
                 <div class="card-glow"></div>
+                <div class="card-scan"></div>
+                <div class="card-corner tl"></div><div class="card-corner tr"></div>
+                <div class="card-corner bl"></div><div class="card-corner br"></div>
                 <div class="card-header">
                     <span class="card-num">03</span>
                     <span class="card-date">27 JAN</span>
@@ -117,8 +150,11 @@
                 </div>
             </a>
 
-            <a href="Tasks\task-04\src\index.html" class="card">
+            <a href="Tasks/task-04/src/index.html" class="card" data-index="3">
                 <div class="card-glow"></div>
+                <div class="card-scan"></div>
+                <div class="card-corner tl"></div><div class="card-corner tr"></div>
+                <div class="card-corner bl"></div><div class="card-corner br"></div>
                 <div class="card-header">
                     <span class="card-num">04</span>
                     <span class="card-date">28 JAN</span>
@@ -131,8 +167,11 @@
                 </div>
             </a>
 
-            <a href=".\Tasks\task-05(A)\src\index.html" class="card">
+            <a href="Tasks/task-05(A)/src/index.html" class="card" data-index="4">
                 <div class="card-glow"></div>
+                <div class="card-scan"></div>
+                <div class="card-corner tl"></div><div class="card-corner tr"></div>
+                <div class="card-corner bl"></div><div class="card-corner br"></div>
                 <div class="card-header">
                     <span class="card-num">05A</span>
                     <span class="card-date">29 JAN</span>
@@ -145,8 +184,11 @@
                 </div>
             </a>
 
-            <a href="Tasks\task-05(B)\index.html" class="card">
+            <a href="Tasks/task-05(B)/index.html" class="card" data-index="5">
                 <div class="card-glow"></div>
+                <div class="card-scan"></div>
+                <div class="card-corner tl"></div><div class="card-corner tr"></div>
+                <div class="card-corner bl"></div><div class="card-corner br"></div>
                 <div class="card-header">
                     <span class="card-num">05B</span>
                     <span class="card-date">29 JAN</span>
@@ -159,8 +201,11 @@
                 </div>
             </a>
 
-            <a href="Tasks\task-06\src\index.html" class="card">
+            <a href="Tasks/task-06/src/index.html" class="card" data-index="6">
                 <div class="card-glow"></div>
+                <div class="card-scan"></div>
+                <div class="card-corner tl"></div><div class="card-corner tr"></div>
+                <div class="card-corner bl"></div><div class="card-corner br"></div>
                 <div class="card-header">
                     <span class="card-num">06</span>
                     <span class="card-date">5 FEB</span>
@@ -173,8 +218,11 @@
                 </div>
             </a>
 
-            <a href="Tasks\task-07\src\index.html" class="card">
+            <a href="Tasks/task-07/src/index.html" class="card" data-index="7">
                 <div class="card-glow"></div>
+                <div class="card-scan"></div>
+                <div class="card-corner tl"></div><div class="card-corner tr"></div>
+                <div class="card-corner bl"></div><div class="card-corner br"></div>
                 <div class="card-header">
                     <span class="card-num">07</span>
                     <span class="card-date">11 FEB</span>
@@ -187,8 +235,11 @@
                 </div>
             </a>
 
-            <a href="Tasks\task-08\src\Task-Launchpad.html" class="card">
+            <a href="Tasks/task-08/src/Task-Launchpad.html" class="card" data-index="8">
                 <div class="card-glow"></div>
+                <div class="card-scan"></div>
+                <div class="card-corner tl"></div><div class="card-corner tr"></div>
+                <div class="card-corner bl"></div><div class="card-corner br"></div>
                 <div class="card-header">
                     <span class="card-num">08</span>
                     <span class="card-date">21 FEB</span>
@@ -201,23 +252,31 @@
                 </div>
             </a>
 
-            <a href="Tasks\task-09\Frontend\dist\index.html" class="card">
+            <div class="card card--disabled" data-index="9">
                 <div class="card-glow"></div>
+                <div class="card-scan"></div>
+                <div class="card-corner tl"></div><div class="card-corner tr"></div>
+                <div class="card-corner bl"></div><div class="card-corner br"></div>
+                <div class="backend-badge">BACKEND REQUIRED</div>
                 <div class="card-header">
                     <span class="card-num">09</span>
                     <span class="card-date">6 MAR</span>
                 </div>
                 <h3 class="card-title">Soha's Atheneum</h3>
-                <p class="card-desc">Full-stack library system with React frontend and Node.js backend.</p>
+                <p class="card-desc">Full-stack library management system with React frontend and REST API.</p>
                 <div class="card-footer">
-                    <span class="category">REACT/MONGO</span>
-                    <span class="arrow">→</span>
+                    <span class="category">REACT/REST API</span>
+                    <span class="card-note">Requires local server — not on GitHub Pages</span>
                 </div>
-            </a>
+            </div>
 
-            <a href="Tasks\task-10\Frontend\build\index.html" class="card card--featured">
+            <div class="card card--featured card--disabled" data-index="10">
                 <div class="card-glow"></div>
+                <div class="card-scan"></div>
+                <div class="card-corner tl"></div><div class="card-corner tr"></div>
+                <div class="card-corner bl"></div><div class="card-corner br"></div>
                 <div class="featured-badge">LATEST</div>
+                <div class="backend-badge backend-badge--right">BACKEND REQUIRED</div>
                 <div class="card-header">
                     <span class="card-num">10</span>
                     <span class="card-date">MAR</span>
@@ -225,10 +284,10 @@
                 <h3 class="card-title">Sohanix Wealth</h3>
                 <p class="card-desc">Fullstack finance dashboard with budgets, analytics and real-time data.</p>
                 <div class="card-footer">
-                    <span class="category">REACT/MONGO</span>
-                    <span class="arrow">→</span>
+                    <span class="category">REACT/REST API</span>
+                    <span class="card-note">Requires local server — not on GitHub Pages</span>
                 </div>
-            </a>
+            </div>
 
         </main>
 
@@ -246,5 +305,6 @@
 
     </div>
 
+    <script src="main.js"></script>
 </body>
 </html>
