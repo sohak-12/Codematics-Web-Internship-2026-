@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styles */
+body {
+  margin: 0;
+  background-color: #050508;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Background Image fix */
+.bg-main-bg {
+  background-image: linear-gradient(transparent), url('/BG.jpeg'); 
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+@layer components {
+  /* Back Navigation Button - Integrated Styles */
+  .back-btn {
+    @apply fixed top-5 left-5 px-5 py-2.5 bg-black/80 backdrop-blur-md 
+           text-white text-xs uppercase tracking-[0.2em] font-mono flex 
+           items-center gap-2 rounded-full border border-white/20 
+           transition-all duration-300 z-[1000];
+  }
+
+  .back-btn:hover {
+    @apply bg-black text-[#00d2ff] translate-x-[5px] border-[#00d2ff];
+  }
+
+  /* THE IMPRESSIVE GLASS CARD */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* Glow & Pop Effect on Hover */
+  .glass-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d2ff;
+    background: rgba(0, 210, 255, 0.05);
+    box-shadow: 0 10px 40px rgba(0, 210, 255, 0.15), 
+                inset 0 0 20px rgba(0, 210, 255, 0.05);
+  }
+}
+
+/* Floating "Neon" Text Effect for numbers */
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+}
+
+/* Smooth Entrance Animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-entrance {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Remove any remaining black panels */
+.bg-black, .bg-slate-900, .bg-gray-900 {
+  background-color: transparent !important;
+}
