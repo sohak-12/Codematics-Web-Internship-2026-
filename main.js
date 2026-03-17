@@ -35,8 +35,6 @@
     const el = document.querySelector('.typed-text');
     const texts = [
         'Frontend & Fullstack Development Journey',
-        'Building Extraordinary Web Experiences',
-        'HTML · CSS · JavaScript · React Magic',
     ];
     let ti = 0, ci = 0, deleting = false;
 
@@ -59,36 +57,6 @@
         setTimeout(tick, deleting ? 38 : 62);
     }
     setTimeout(tick, 800);
-})();
-
-/* ── ANIMATED COUNTERS ── */
-(function () {
-    const counters = document.querySelectorAll('.counter');
-    const ease = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-
-    function animateCounter(el) {
-        const target = +el.dataset.target;
-        const duration = 1400;
-        const start = performance.now();
-        function step(now) {
-            const p = Math.min((now - start) / duration, 1);
-            el.textContent = Math.round(ease(p) * target);
-            if (p < 1) requestAnimationFrame(step);
-            else el.textContent = target;
-        }
-        requestAnimationFrame(step);
-    }
-
-    const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                animateCounter(e.target);
-                obs.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    counters.forEach(c => obs.observe(c));
 })();
 
 /* ── CARD STAGGER REVEAL ── */
