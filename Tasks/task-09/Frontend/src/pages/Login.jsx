@@ -161,28 +161,6 @@ export default function Login({ onLogin }) {
         backgroundSize: '60px 60px',
       }} />
 
-      {/* Back button */}
-      <a
-        href="#"
-        onClick={(e) => { e.preventDefault(); const base = window.location.pathname.split('/Tasks/')[0]; window.location.href = window.location.origin + base + '/index.html'; }}
-        style={{
-          position: 'fixed', top: '20px', left: '20px',
-          padding: '8px 18px',
-          background: 'rgba(0,0,0,0.6)',
-          backdropFilter: 'blur(12px)',
-          color: 'rgba(255,255,255,0.7)',
-          textDecoration: 'none', borderRadius: '30px',
-          border: '1px solid rgba(255,255,255,0.15)',
-          fontSize: '12px', fontWeight: '500', zIndex: 1000,
-          transition: '0.3s ease', fontFamily: 'JetBrains Mono, monospace',
-          letterSpacing: '0.05em',
-        }}
-        onMouseEnter={e => { e.target.style.background = 'rgba(0,210,255,0.15)'; e.target.style.color = '#00d2ff'; e.target.style.borderColor = '#00d2ff'; e.target.style.boxShadow = '0 0 20px rgba(0,210,255,0.3)'; }}
-        onMouseLeave={e => { e.target.style.background = 'rgba(0,0,0,0.6)'; e.target.style.color = 'rgba(255,255,255,0.7)'; e.target.style.borderColor = 'rgba(255,255,255,0.15)'; e.target.style.boxShadow = 'none'; }}
-      >
-        ← Back to Logbook
-      </a>
-
       {/* Main card */}
       <div
         ref={cardRef}
