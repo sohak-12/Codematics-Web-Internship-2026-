@@ -3,240 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soha Muzammil | DIGITAL LOGBOOK</title>
+    <title>Soha Muzammil | Digital Logbook</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .card {
-            display: block;
-            width: 300px; 
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #333;
-            border-radius: 15px;
-            text-decoration: none;
-            color: white;
-            position: relative;
-            transition: 0.4s ease;
-            overflow: hidden;
-            margin-top: 20px; 
-        }
-        .card:hover {
-            border-color: #00d2ff;
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
-        }
-        .card-num {
-            font-size: 40px;
-            font-weight: 900;
-            opacity: 0.1;
-            position: absolute;
-            right: 15px;
-            top: 10px;
-            transition: 0.4s;
-        }
-        .card:hover .card-num {
-            opacity: 0.5;
-            color: #00d2ff;
-        }
-        .card-date {
-            font-size: 12px;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-        .category {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 4px 12px;
-            background: rgba(0, 210, 255, 0.1);
-            color: #00d2ff;
-            border-radius: 20px;
-            font-size: 11px;
-            letter-spacing: 1px;
-        }
-        .task-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            padding: 20px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="bg-overlay"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Floating particles -->
+    <div class="particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
 
     <div class="main-container">
-        <header>
-            <div class="header-content">
-                <span class="tag">DIGITAL LOGBOOK</span>
-                <h1>Soha Muzammil</h1>
-                <p class="subtitle">Codematics Web Internship 2026</p>
+
+        <!-- HERO HEADER -->
+        <header class="hero-header">
+            <div class="hero-left">
+                <div class="logbook-tag">
+                    <span class="tag-dot"></span>
+                    DIGITAL LOGBOOK — CODEMATICS 2026
+                </div>
+                <h1 class="hero-name">Soha <span class="accent">Muzammil</span></h1>
+                <p class="hero-sub">Frontend &amp; Fullstack Development Journey</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-num">10</span>
+                        <span class="stat-label">Tasks Done</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-num">8</span>
+                        <span class="stat-label">Weeks Total</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-num">7</span>
+                        <span class="stat-label">Weeks Done</span>
+                    </div>
+                </div>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-label">
+                        <span>INTERNSHIP PROGRESS</span>
+                        <span>7 / 8 Weeks &mdash; 28 Jan → 24 Mar</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 87.5%"></div>
+                    </div>
+                    <div class="progress-pct">87.5%</div>
+                </div>
             </div>
-            <div class="status-box">
-                <span class="dot"></span>
+            <div class="hero-right">
+                <div class="live-badge">
+                    <span class="pulse-ring"></span>
+                    <span class="pulse-core"></span>
+                    LIVE
+                </div>
             </div>
         </header>
 
+        <!-- SECTION LABEL -->
+        <div class="section-label">
+            <span class="line"></span>
+            <span class="label-text">PROJECT ARCHIVE</span>
+            <span class="line"></span>
+        </div>
+
+        <!-- TASK GRID -->
         <main class="task-grid">
-            <a href="./Tasks/task-01/t1.html" class="card">
-                <div class="card-num">01</div>
-                <div class="card-date">26 JAN</div>
-                <h3>Web Layout Foundation</h3>
-                <p class="category">STRUCTURE</p>
+
+            <a href="Tasks\task-01\t1.html" class="card">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-num">01</span>
+                    <span class="card-date">26 JAN</span>
+                </div>
+                <h3 class="card-title">Web Layout Foundation</h3>
+                <p class="card-desc">Semantic HTML structure with responsive grid layout fundamentals.</p>
+                <div class="card-footer">
+                    <span class="category">HTML</span>
+                    <span class="arrow">→</span>
+                </div>
             </a>
 
-            <a href="./Tasks/task-02/src/index.html" class="card">
-                <div class="card-num">02</div>
-                <div class="card-date">26 JAN</div>
-                <h3>Visual Landing Page</h3>
-                <p class="category">ASSETS</p>
+            <a href="Tasks\task-02\src\index.html" class="card">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-num">02</span>
+                    <span class="card-date">26 JAN</span>
+                </div>
+                <h3 class="card-title">Visual Landing Page</h3>
+                <p class="card-desc">Asset-rich landing page with imagery, typography and visual hierarchy.</p>
+                <div class="card-footer">
+                    <span class="category">HTML/CSS</span>
+                    <span class="arrow">→</span>
+                </div>
             </a>
 
-            <a href="./Tasks/task-03/src/index.html" class="card">
-                <div class="card-num">03</div>
-                <div class="card-date">27 JAN</div>
-                <h3>Submission workflow</h3>
-                <p class="category">FORMS</p>
+            <a href="Tasks\task-03\src\index.html" class="card">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-num">03</span>
+                    <span class="card-date">27 JAN</span>
+                </div>
+                <h3 class="card-title">Submission Workflow</h3>
+                <p class="card-desc">Form validation, user input handling and submission feedback flow.</p>
+                <div class="card-footer">
+                    <span class="category">HTML/CSS</span>
+                    <span class="arrow">→</span>
+                </div>
             </a>
 
-            <a href="Tasks/task-04/src/index.html" class="card">
-                <div class="card-num">04</div>
-                <div class="card-date">28 JAN</div>
-                <h3>Diagonal Cut Design</h3>
-                <p class="category">CSS</p>
+            <a href="Tasks\task-04\src\index.html" class="card">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-num">04</span>
+                    <span class="card-date">28 JAN</span>
+                </div>
+                <h3 class="card-title">Diagonal Cut Design</h3>
+                <p class="card-desc">Advanced CSS clip-path techniques and geometric visual design.</p>
+                <div class="card-footer">
+                    <span class="category">CSS</span>
+                    <span class="arrow">→</span>
+                </div>
             </a>
 
-            <a href="Tasks/task-05(A)/src/index.html" class="card">
-            <div class="card-num">05 [A]</div>
-            <div class="card-date">29 JAN</div>
-            <h3>Keefer Law Firm</h3>
-            <p class="category">HTML/CSS</p>
-            </a>
-            
-           <a href="Tasks/task-05(B)/index.html" class="card">
-            <div class="card-num">05 [B]</div>
-            <div class="card-date">29 JAN</div>
-            <h3>Keefer Law Firm</h3>
-            <p class="category">TAILWIND</p>
+            <a href=".\Tasks\task-05(A)\src\index.html" class="card">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-num">05A</span>
+                    <span class="card-date">29 JAN</span>
+                </div>
+                <h3 class="card-title">Keefer Law Firm</h3>
+                <p class="card-desc">Professional law firm website built with pure HTML &amp; CSS.</p>
+                <div class="card-footer">
+                    <span class="category">HTML/CSS</span>
+                    <span class="arrow">→</span>
+                </div>
             </a>
 
-            <a href="Tasks/task-06/src/index.html" class="card">
-                <div class="card-num">06</div>
-                <div class="card-date">5 FEB</div>
-                <h3>Stateful Portfolio</h3>
-                <p class="category">DYNAMIC</p>
-                
-            <a href="Tasks/task-07/src/index.html" class="card">
-               <div class="card-num">07</div>
-               <div class="card-date">11 Feb</div>
-               <h3>Dev Toolkit</h3>
-               <p class="category">INTERACTIVE</p>
+            <a href="Tasks\task-05(B)\index.html" class="card">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-num">05B</span>
+                    <span class="card-date">29 JAN</span>
+                </div>
+                <h3 class="card-title">Keefer Law Firm</h3>
+                <p class="card-desc">Same design rebuilt using Tailwind CSS utility-first framework.</p>
+                <div class="card-footer">
+                    <span class="category">TAILWIND</span>
+                    <span class="arrow">→</span>
+                </div>
             </a>
-            
-            <a href="Tasks/task-08/src/Task-Launchpad.html" class="card">
-                <div class="card-num">08</div>
-                <div class="card-date">21 Feb</div>
-                <h3>Tasks Launchpad</h3>
-                <p class="category">JAVASCRIPT</p>
+
+            <a href="Tasks\task-06\src\index.html" class="card">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-num">06</span>
+                    <span class="card-date">5 FEB</span>
+                </div>
+                <h3 class="card-title">Stateful Portfolio</h3>
+                <p class="card-desc">Dynamic portfolio with React state management and component logic.</p>
+                <div class="card-footer">
+                    <span class="category">TAILWIND/JS</span>
+                    <span class="arrow">→</span>
+                </div>
             </a>
-            
-            </main>
-    </div>
-</body>
-</html>
-<footer class="logbook-footer">
+
+            <a href="Tasks\task-07\src\index.html" class="card">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-num">07</span>
+                    <span class="card-date">11 FEB</span>
+                </div>
+                <h3 class="card-title">Dev Toolkit</h3>
+                <p class="card-desc">Interactive developer tools with real-time UI feedback and utilities.</p>
+                <div class="card-footer">
+                    <span class="category">JAVASCRIPT</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <a href="Tasks\task-08\src\Task-Launchpad.html" class="card">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-num">08</span>
+                    <span class="card-date">21 FEB</span>
+                </div>
+                <h3 class="card-title">Tasks Launchpad</h3>
+                <p class="card-desc">JavaScript-powered task launcher with dynamic routing and state.</p>
+                <div class="card-footer">
+                    <span class="category">JAVASCRIPT</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <a href="Tasks\task-09\Frontend\dist\index.html" class="card">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-num">09</span>
+                    <span class="card-date">6 MAR</span>
+                </div>
+                <h3 class="card-title">Soha's Atheneum</h3>
+                <p class="card-desc">Full-stack library system with React frontend and Node.js backend.</p>
+                <div class="card-footer">
+                    <span class="category">REACT/MONGO</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <a href="Tasks\task-10\Frontend\build\index.html" class="card card--featured">
+                <div class="card-glow"></div>
+                <div class="featured-badge">LATEST</div>
+                <div class="card-header">
+                    <span class="card-num">10</span>
+                    <span class="card-date">MAR</span>
+                </div>
+                <h3 class="card-title">Sohanix Wealth</h3>
+                <p class="card-desc">Fullstack finance dashboard with budgets, analytics and real-time data.</p>
+                <div class="card-footer">
+                    <span class="category">REACT/MONGO</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="logbook-footer">
             <div class="footer-divider"></div>
             <div class="footer-content">
                 <div class="status-indicator">
                     <span class="pulse-dot"></span>
                     <span class="status-text">Active Progress</span>
                 </div>
-                <p class="footer-note">
-                <i>This logbook will be dynamically updated</span>
-                </p>
+                <p class="footer-note"><i>This logbook will be dynamically updated</i></p>
             </div>
         </footer>
 
-        <style>
-            .logbook-footer {
-                margin-top: 100px;
-                padding-bottom: 50px;
-                text-align: center;
-                width: 100%;
-            }
+    </div>
 
-            .footer-divider {
-                height: 1px;
-                width: 200px;
-                background: linear-gradient(90deg, transparent, #00d2ff, transparent);
-                margin: 0 auto 30px;
-                opacity: 0.5;
-            }
-
-            .footer-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-
-            .status-indicator {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                background: rgba(0, 210, 255, 0.05);
-                padding: 5px 15px;
-                border-radius: 20px;
-                border: 1px solid rgba(0, 210, 255, 0.1);
-            }
-
-            .pulse-dot {
-                height: 8px;
-                width: 8px;
-                background-color: #00d2ff;
-                border-radius: 50%;
-                display: inline-block;
-                box-shadow: 0 0 10px #00d2ff;
-                animation: pulse-animation 2s infinite;
-            }
-
-            .status-text {
-                font-size: 10px;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                color: #00d2ff;
-                font-weight: 700;
-            }
-
-            .footer-note {
-                color: rgba(255, 255, 255, 0.5); 
-                font-size: 15px; 
-                font-weight: 300;
-                max-width: 500px;
-                line-height: 1.6;
-                font-style: italic; 
-            }
-
-            .highlight {
-                color: #ffffff;
-                font-weight: 600;
-                font-style: italic; 
-                border-bottom: 1px solid rgba(0, 210, 255, 0.4);
-            }
-
-            .milestone-tag {
-                font-size: 11px;
-                color: rgba(255, 255, 255, 0.2);
-                letter-spacing: 4px;
-                text-transform: uppercase;
-                margin-top: 10px;
-            }
-
-            @keyframes pulse-animation {
-                0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
-                70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 210, 255, 0); }
-                100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
-            }
-        </style>
-
-
+</body>
+</html>
