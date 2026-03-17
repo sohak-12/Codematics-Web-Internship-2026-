@@ -52,15 +52,27 @@ To maintain professional standards, the project is organized into modular direct
 * **Focus:** JavaScript Logic Integration
 * **Challenge:** Developing a unified interface to host 6 distinct functional modules (Clock, Calculator, Carousel, etc.) within a single interactive environment.
 * **Logic:** Implementing dynamic `iframe` routing and state management to switch between specialized JS utilities without page refreshes.
-  
+
+### **09 | Soha's Atheneum**
+* **Focus:** Full-Stack Library Management System.
+* **Tech:** React, Node.js, Express, MongoDB.
+* **Features:** Implemented a digital library where users can manage book inventories with a robust Backend API and database integration.
+
+### **10 | Sohanix Wealth**
+* **Focus:** High-Performance Financial Analytics.
+* **Tech:** React, Framer Motion, Lucide-React, Node.js, MongoDB.
+* **Highlight:** A "Mindblowing" UI featuring real-time budget tracking, interactive graphs, and a premium glassmorphic authentication system.
+* **Security:** Integrated enterprise-grade security placeholders and secure JWT-based authentication flows.
+
 ---
 
 ## 🛠️ Technologies & Tools
 
-* **Languages:** HTML5, CSS3, JavaScript (ES6+).
-* **Frameworks:** Tailwind CSS.
+* **Frontend:** HTML5, CSS3, JavaScript (ES6+), React.js, Tailwind CSS, Framer Motion.
+* **Backend:** Node.js, Express.js.
+* **Database:** MongoDB (Atlas).
 * **Design Patterns:** Glassmorphism, Responsive Design, Mobile-First approach.
-* **Tools:** VS Code, Git, GitHub.
+* **Tools:** VS Code, Git, GitHub, Postman, Vercel/Render.
 
 ---
 
@@ -71,6 +83,7 @@ To maintain professional standards, the project is organized into modular direct
 ---
 
 > [!NOTE]
+> > **Current Progress:** 7 / 8 Weeks Completed (87.5%)
 > This logbook is dynamically updated as I progress through my internship milestones. Each folder represents a step forward in my technical growth.
 
 ---
