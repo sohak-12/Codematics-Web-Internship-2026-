@@ -19,40 +19,61 @@ const app = express();
 connectDB();
 
 /* ─── 2. SECURITY & MIDDLEWARE ─────────────────────────── */
-app.use(helmet());
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-// CORS Configuration
-app.use(cors({
+// CORS Configuration - Fixed for Vercel & Production
+const corsOptions = {
   origin: [
-    process.env.CLIENT_URL,
+    "https://sohanix-wealth.vercel.app",
     "http://localhost:3000",
-    "https://sohanix-wealth.vercel.app"
+    process.env.CLIENT_URL
   ].filter(Boolean),
   credentials: true,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
+};
+
+// Apply CORS before Helmet
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
+
+// Helmet with CORS Bypass
+app.use(helmet({
+  crossOriginResourcePolicy: false,
+  crossOriginOpenerPolicy: false
 }));
-app.options("*", cors());
 
 // Body parser
 app.use(express.json({ limit: "10kb" }));
 
-// CSRF Protection — enforce JSON Content-Type on state-changing requests
-// Also guards against CWE-843 type confusion by validating header types before use
+// CSRF / Content-Type Protection Middleware
 app.use((req, res, next) => {
   if (["POST", "PUT", "PATCH", "DELETE"].includes(req.method)) {
     const contentType = req.headers["content-type"];
-    if (typeof contentType !== "string" || !contentType.includes("application/json")) {
-      return res.status(415).json({ success: false, message: "Unsupported Media Type" });
+    if (!contentType || !contentType.includes("application/json")) {
+      return res.status(415).json({ 
+        success: false, 
+        message: "Unsupported Media Type. Please use application/json" 
+      });
     }
   }
   next();
 });
 
 /* ─── 3. API ROUTES ────────────────────────────────────── */
+
+// Welcome Route (Fixes "Cannot GET /")
+app.get("/", (req, res) => {
+  res.json({
+    status: "success",
+    message: "Sohanix Wealth API is Live & Running!",
+    author: "Soha Muzammil",
+    version: "1.0.0"
+  });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/transactions", authMiddleware, transactionRoutes);
 app.use("/api/budgets", authMiddleware, budgetRoutes);
