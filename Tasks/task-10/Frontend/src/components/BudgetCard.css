@@ -1,0 +1,168 @@
+/* Extraordinary Modern Budget Card */
+.budget-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: fadeUp 0.6s ease-out;
+}
+
+.budget-card--over {
+  border-color: rgba(239,68,68,0.3);
+  box-shadow: 0 0 20px rgba(239,68,68,0.08);
+}
+
+.budget-card--warning {
+  border-color: rgba(245,158,11,0.35);
+  box-shadow: 0 0 20px rgba(245,158,11,0.08);
+}
+
+/* Progress Bar - Smooth Gradient Glow */
+.budget-card__progress {
+  width: 100%;
+  height: 10px; /* Thicker for better visibility */
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.budget-card__progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6); /* Gradient fill */
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); /* Glow effect */
+  transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Stat Value Styling */
+.stat__value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-feature-settings: "tnum"; /* Tabular nums for clean alignment */
+}
+
+.budget-card__warning {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: pulse 2s infinite;
+}
+
+.budget-card__approaching {
+  background: rgba(245,158,11,0.08);
+  border: 1px solid rgba(245,158,11,0.25);
+  color: #f59e0b;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.budget-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.budget-card__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+.budget-card__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.budget-card__action-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.04);
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.budget-card__action-btn.edit:hover {
+  background: rgba(168,85,247,0.15);
+  border-color: rgba(168,85,247,0.3);
+  color: #a855f7;
+}
+
+.budget-card__action-btn.delete:hover {
+  background: rgba(239,68,68,0.12);
+  border-color: rgba(239,68,68,0.3);
+  color: #f87171;
+}
+
+.budget-card__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat__label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+.stat__value.over-budget { color: #f87171; }
+.stat__value.remaining { color: #34d399; }
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(239, 68, 68, 0.2); }
+  70%  { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(239, 68, 68, 0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+[data-theme="light"] .budget-card__action-btn {
+  border-color: rgba(168,85,247,0.12);
+  background: rgba(168,85,247,0.04);
+  color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .budget-card { padding: 18px; }
+  .budget-card__stats { grid-template-columns: 1fr; gap: 15px; }
+}
