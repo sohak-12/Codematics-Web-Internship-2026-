@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please add a password"],
     minlength: 6,
-    select: false, // This ensures the password isn't sent back by default in queries
+    select: false,
   },
   createdAt: {
     type: Date,
@@ -29,9 +29,6 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-/* ─── Encryption Logic ──────────────────────────────────── */
-
-// Encrypt password before saving the user to the database
 UserSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
@@ -40,7 +37,6 @@ UserSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-// Method to compare entered password with the hashed password in the database
 UserSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
