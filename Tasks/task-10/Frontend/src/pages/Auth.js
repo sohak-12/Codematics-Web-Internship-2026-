@@ -113,12 +113,6 @@ const Auth = ({ onLoginSuccess }) => {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }} className="auth-master-container">
       <MobileShowcase />
 
-      {/* ── Back to Logbook ── */}
-      <button className="back-to-logbook" onClick={() => {
-        const base = window.location.pathname.split("/Tasks/")[0];
-        window.location.href = base + "/index.html";
-      }}>← Back to Logbook</button>
-
       {/* ── Floating Particles ── */}
       <div className="particles-container">
         {Array.from({ length: 20 }).map((_, i) => <Particle key={i} index={i} />)}
