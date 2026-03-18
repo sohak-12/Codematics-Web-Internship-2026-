@@ -26,19 +26,16 @@ if (process.env.NODE_ENV !== "production") {
 
 // CORS Configuration
 app.use(cors({
-  origin: (origin, callback) => {
-    const allowed = [
-      process.env.CLIENT_URL,
-      "http://localhost:3000"
-    ].filter(Boolean);
-    if (!origin || allowed.includes(origin) || /\.vercel\.app$/.test(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true
+  origin: [
+    process.env.CLIENT_URL,
+    "http://localhost:3000",
+    "https://sohanix-wealth.vercel.app"
+  ].filter(Boolean),
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
+app.options("*", cors());
 
 // Body parser
 app.use(express.json({ limit: "10kb" }));
