@@ -15,7 +15,12 @@ const app = express();
 // --- Middleware ---
 // Yahan origin mein apne Vercel frontend ka URL zaroor add karein
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://sohas-atheneum.vercel.app'], 
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:5173',
+    'https://sohas-atheneum.vercel.app',
+    'https://sohaatheneum-git-main-sohak-12s-projects.vercel.app'
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
