@@ -35,17 +35,16 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
-  // Preflight (OPTIONS) request ka foran jawab dena zaroori hai
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
   next();
 });
 
-// Helmet with CORS Bypass
+// Helmet with CORS Bypass (Fixed Syntax)
 app.use(helmet({
-  crossOriginResourcePolicy: false,
-});
+  crossOriginResourcePolicy: false
+}));
 
 app.use(express.json({ limit: "10kb" }));
 
