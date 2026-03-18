@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 require("dotenv").config();
@@ -17,40 +18,51 @@ const app = express();
 /* ─── 1. DATABASE CONNECTION ───────────────────────────── */
 connectDB();
 
-/* ─── 2. MANUAL CORS & SECURITY ────────────────────────── */
+/* ─── 2. SECURITY & MIDDLEWARE ─────────────────────────── */
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-// MANUAL CORS MIDDLEWARE (Vercel Fix)
-app.use((req, res, next) => {
-  const allowedOrigins = ["https://sohanix-wealth.vercel.app", "http://localhost:3000"];
-  const origin = req.headers.origin;
-  
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-  
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
+// CORS Configuration
+const corsOptions = {
+  origin: [
+    process.env.CLIENT_URL,
+    "http://localhost:3000",
+    "https://sohanix-wealth.vercel.app"
+  ].filter(Boolean),
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
 
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
+
+// FIX: Helmet ko customize kiya taake CORS block na ho
+app.use(helmet({
+  crossOriginResourcePolicy: false,
+  crossOriginOpenerPolicy: false
+}));
+
+// Body parser
+app.use(express.json({ limit: "10kb" }));
+
+// CSRF Protection
+app.use((req, res, next) => {
+  if (["POST", "PUT", "PATCH", "DELETE"].includes(req.method)) {
+    const contentType = req.headers["content-type"];
+    if (typeof contentType !== "string" || !contentType.includes("application/json")) {
+      return res.status(415).json({ success: false, message: "Unsupported Media Type" });
+    }
   }
   next();
 });
 
-// Helmet with CORS Bypass (Fixed Syntax)
-app.use(helmet({
-  crossOriginResourcePolicy: false
-}));
-
-app.use(express.json({ limit: "10kb" }));
-
 /* ─── 3. API ROUTES ────────────────────────────────────── */
+
+// Welcome Route (Fixes "Cannot GET /" screen)
 app.get("/", (req, res) => {
-  res.json({ status: "success", message: "Sohanix Wealth API is Live!" });
+  res.json({ success: true, message: "Sohanix Wealth API is Running" });
 });
 
 app.use("/api/auth", authRoutes);
@@ -60,17 +72,26 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/stats", statsRoutes);
 app.use("/api/health", healthRoutes);
 
-/* ─── 4. ERROR HANDLING ────────────────────────────────── */
+/* ─── 4. CENTRALIZED ERROR HANDLING ────────────────────── */
 app.use((err, req, res, next) => {
-  res.status(err.status || 500).json({
+  const statusCode = err.status || 500;
+  res.status(statusCode).json({
     success: false,
-    message: err.message || "Internal Server Error"
+    message: statusCode === 500 ? "Internal Server Error" : err.message
   });
 });
 
+/* ─── 5. SERVER INITIALIZATION ─────────────────────────── */
 const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV !== "production") {
-  app.listen(PORT, () => console.log(`Server on ${PORT}`));
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 }
+
+/* ─── 6. GRACEFUL SHUTDOWN ──────────────────────────────── */
+process.on("unhandledRejection", (err) => {
+  console.error("Unhandled Rejection:", err.message);
+});
 
 module.exports = app;
