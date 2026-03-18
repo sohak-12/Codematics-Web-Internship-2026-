@@ -12,37 +12,26 @@ dotenv.config();
 
 const app = express();
 
-// --- Middleware ---
-// Yahan origin mein apne Vercel frontend ka URL zaroor add karein
 app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'http://localhost:5173',
-    'https://sohas-atheneum.vercel.app',
-    'https://sohaatheneum-git-main-sohak-12s-projects.vercel.app'
-  ],
+  origin: /\.vercel\.app$/,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
 
 app.use(express.json());
 
-// --- Routes ---
 app.use('/api/auth', authRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/members', memberRoutes);
 app.use('/api/issues', issueRoutes);
 app.use('/api/stats', statsRoutes);
 
-// --- Database Connection ---
-// process.env.MONGO_URI (Vercel settings wala name)
 const dbURI = process.env.MONGO_URI || 'mongodb://localhost:27017/library';
 
 mongoose.connect(dbURI)
   .then(() => console.log('✅ MongoDB connection established successfully'))
   .catch((err) => console.error('❌ MongoDB connection error:', err));
 
-// Basic route
 app.get('/', (req, res) => {
   res.send('Library Management System API is running');
 });
