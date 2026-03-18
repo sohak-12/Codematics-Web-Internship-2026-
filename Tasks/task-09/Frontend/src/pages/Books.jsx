@@ -32,7 +32,7 @@ function GlowButton({ onClick, children, color = '#00d2ff', disabled }) {
       onClick={onClick} disabled={disabled}
       onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
       style={{
-        padding: '11px 24px', borderRadius: '12px', border: 'none', cursor: disabled ? 'not-allowed' : 'pointer',
+        padding: '11px 24px', borderRadius: '12px', cursor: disabled ? 'not-allowed' : 'pointer',
         background: h ? color : `${color}22`,
         color: h ? '#000' : color,
         fontWeight: 800, fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase',
