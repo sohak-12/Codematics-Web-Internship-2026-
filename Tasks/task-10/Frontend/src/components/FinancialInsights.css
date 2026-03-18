@@ -1,0 +1,123 @@
+/* =============================================
+   SOHANIX WEALTH — FINANCIAL INSIGHTS
+============================================= */
+
+.financial-insights {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.financial-insights::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.5), transparent);
+}
+
+.financial-insights:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 20px 50px rgba(168, 85, 247, 0.1);
+}
+
+.insights-header { margin-bottom: 24px; }
+
+.insights-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.4px;
+  margin-bottom: 4px;
+}
+
+.insights-description {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.insights-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.insight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  background: var(--input-bg);
+  transition: all 0.3s ease;
+  animation: insightFadeIn 0.4s ease-out both;
+}
+
+.insight-item:hover {
+  transform: translateY(-3px);
+  background: rgba(168, 85, 247, 0.06);
+  border-color: rgba(168, 85, 247, 0.25);
+}
+
+.insight-item--alert {
+  border-color: rgba(248, 113, 113, 0.2);
+  background: rgba(248, 113, 113, 0.04);
+}
+
+.insight-item--alert:hover {
+  border-color: rgba(248, 113, 113, 0.35);
+  background: rgba(248, 113, 113, 0.08);
+}
+
+.insight-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a855f7;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.insight-item--alert .insight-icon-wrapper {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.2);
+  color: #f87171;
+}
+
+.insight-item:hover .insight-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.insight-icon { width: 18px; height: 18px; }
+
+.insight-message {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  font-weight: 500;
+  padding-top: 2px;
+}
+
+@keyframes insightFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .financial-insights { padding: 20px; }
+  .insights-container { grid-template-columns: 1fr; }
+  .insight-item { padding: 14px 16px; }
+}
