@@ -51,7 +51,7 @@ export default function Search() {
             {[{ id: 'books', label: '📚 Books' }, { id: 'members', label: '👥 Members' }].map(t => (
               <button key={t.id} onClick={() => handleTypeChange(t.id)}
                 style={{
-                  padding: '8px 20px', borderRadius: '10px', border: 'none', cursor: 'pointer',
+                  padding: '8px 20px', borderRadius: '10px', cursor: 'pointer',
                   background: type === t.id ? 'rgba(0,210,255,0.15)' : 'rgba(255,255,255,0.04)',
                   color: type === t.id ? '#00d2ff' : 'rgba(255,255,255,0.4)',
                   fontWeight: 700, fontSize: '12px', fontFamily: 'JetBrains Mono, monospace',
