@@ -23,20 +23,19 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-// FULL OPEN CORS - No more blocking!
 app.use(cors({
-  origin: true, 
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin"]
+  origin: true,
+  credentials: true
 }));
 
-app.options("*", (req, res) => {
-  res.header('Access-Control-Allow-Origin', req.header('Origin'));
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.send(200);
+// OPTIONS requests handle karne ke liye (Important for Preflight)
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", req.header('Origin'));
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  if (req.method === 'OPTIONS') return res.sendStatus(200);
+  next();
 });
 
 app.use(helmet({
