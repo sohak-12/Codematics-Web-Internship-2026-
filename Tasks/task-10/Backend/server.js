@@ -23,30 +23,31 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-app.use(cors({
-  origin: true,
-  credentials: true
-}));
+// Sabse pehle CORS hona chahiye
+app.use(cors({ origin: true, credentials: true }));
 
-// OPTIONS requests handle karne ke liye (Important for Preflight)
+// Manual Headers for Vercel
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", req.header('Origin'));
+  res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
   res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  if (req.method === 'OPTIONS') return res.sendStatus(200);
+  
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
   next();
 });
 
+// Helmet Configuration (Updated for Cross-Origin)
 app.use(helmet({
-  crossOriginResourcePolicy: false,
+  crossOriginResourcePolicy: { policy: "cross-origin" },
   crossOriginOpenerPolicy: false
 }));
 
 app.use(express.json({ limit: "10kb" }));
 
 /* ─── 3. API ROUTES ────────────────────────────────────── */
-
 app.get("/", (req, res) => {
   res.json({ success: true, message: "Sohanix Wealth API is Running" });
 });
@@ -69,8 +70,6 @@ app.use((err, req, res, next) => {
 
 /* ─── 5. SERVER INITIALIZATION ─────────────────────────── */
 const PORT = process.env.PORT || 5000;
-
-// Vercel handles the listening, so we only listen locally
 if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
