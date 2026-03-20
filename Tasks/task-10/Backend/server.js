@@ -28,6 +28,7 @@ const corsOptions = {
   origin: [
     process.env.CLIENT_URL,
     "http://localhost:3000",
+    "https://sohas-atheneum.vercel.app", // Aapka naya frontend link
     "https://sohanix-wealth.vercel.app"
   ].filter(Boolean),
   credentials: true,
@@ -38,29 +39,15 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
 
-// FIX: Helmet ko customize kiya taake CORS block na ho
 app.use(helmet({
   crossOriginResourcePolicy: false,
   crossOriginOpenerPolicy: false
 }));
 
-// Body parser
 app.use(express.json({ limit: "10kb" }));
-
-// CSRF Protection
-app.use((req, res, next) => {
-  if (["POST", "PUT", "PATCH", "DELETE"].includes(req.method)) {
-    const contentType = req.headers["content-type"];
-    if (typeof contentType !== "string" || !contentType.includes("application/json")) {
-      return res.status(415).json({ success: false, message: "Unsupported Media Type" });
-    }
-  }
-  next();
-});
 
 /* ─── 3. API ROUTES ────────────────────────────────────── */
 
-// Welcome Route (Fixes "Cannot GET /" screen)
 app.get("/", (req, res) => {
   res.json({ success: true, message: "Sohanix Wealth API is Running" });
 });
@@ -77,12 +64,14 @@ app.use((err, req, res, next) => {
   const statusCode = err.status || 500;
   res.status(statusCode).json({
     success: false,
-    message: statusCode === 500 ? "Internal Server Error" : err.message
+    message: err.message || "Internal Server Error"
   });
 });
 
 /* ─── 5. SERVER INITIALIZATION ─────────────────────────── */
 const PORT = process.env.PORT || 5000;
+
+// Vercel handles the listening, so we only listen locally
 if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
