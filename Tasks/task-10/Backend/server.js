@@ -19,35 +19,41 @@ const app = express();
 connectDB();
 
 /* ─── 2. SECURITY & MIDDLEWARE ─────────────────────────── */
-if (process.env.NODE_ENV !== "production") {
-  app.use(morgan("dev"));
-}
 
-// Sabse pehle CORS hona chahiye
-app.use(cors({ origin: true, credentials: true }));
+// Sabse pehle CORS (Order matters for Vercel!)
+app.use(cors({ 
+  origin: true, 
+  credentials: true 
+}));
 
-// Manual Headers for Vercel
+// Manual Headers for Preflight (OPTIONS) requests
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With, Accept");
   res.header("Access-Control-Allow-Credentials", "true");
   
+  // Browser ki preflight request ko foran 200 OK dena
   if (req.method === "OPTIONS") {
     return res.sendStatus(200);
   }
   next();
 });
 
-// Helmet Configuration (Updated for Cross-Origin)
+// Helmet (CORS ke baad taake headers block na hon)
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" },
   crossOriginOpenerPolicy: false
 }));
 
+if (process.env.NODE_ENV !== "production") {
+  app.use(morgan("dev"));
+}
+
 app.use(express.json({ limit: "10kb" }));
 
 /* ─── 3. API ROUTES ────────────────────────────────────── */
+
 app.get("/", (req, res) => {
   res.json({ success: true, message: "Sohanix Wealth API is Running" });
 });
@@ -70,6 +76,7 @@ app.use((err, req, res, next) => {
 
 /* ─── 5. SERVER INITIALIZATION ─────────────────────────── */
 const PORT = process.env.PORT || 5000;
+
 if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
