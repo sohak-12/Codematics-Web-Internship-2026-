@@ -17,12 +17,16 @@ const app = express();
 /* ─── 1. DATABASE CONNECTION ───────────────────────────── */
 connectDB();
 
-/* ─── 2. MANUAL CORS (No Package Needed) ───────────────── */
+/* ─── 2. THE FINAL CORS FIX (Manual Headers) ───────────── */
 app.use((req, res, next) => {
-  // Aapka exact frontend URL
-  const origin = req.headers.origin;
-  const allowedOrigins = ["https://sohanix-wealth.vercel.app", "http://localhost:3000"];
+  // Aapke sabhi frontend URLs ki list
+  const allowedOrigins = [
+    "https://sohanix-wealth-mk58njhr8-sohak-12s-projects.vercel.app",
+    "https://sohanix-wealth.vercel.app",
+    "http://localhost:3000"
+  ];
   
+  const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   }
@@ -31,7 +35,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
-  // Preflight check
+  // OPTIONS (Preflight) request handler
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
@@ -43,15 +47,13 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-app.use(helmet({
-  crossOriginResourcePolicy: false,
-}));
-
+app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(express.json({ limit: "10kb" }));
 
 /* ─── 4. API ROUTES ────────────────────────────────────── */
+// Welcome Route
 app.get("/", (req, res) => {
-  res.json({ success: true, message: "Sohanix Wealth API is Live!" });
+  res.json({ success: true, message: "Sohanix Wealth API is Active!" });
 });
 
 app.use("/api/auth", authRoutes);
@@ -61,17 +63,26 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/stats", statsRoutes);
 app.use("/api/health", healthRoutes);
 
-/* ─── 5. ERROR HANDLING ────────────────────────────────── */
+/* ─── 5. CENTRALIZED ERROR HANDLING ────────────────────── */
 app.use((err, req, res, next) => {
-  res.status(err.status || 500).json({
+  const statusCode = err.status || 500;
+  res.status(statusCode).json({
     success: false,
-    message: err.message || "Internal Server Error"
+    message: statusCode === 500 ? "Internal Server Error" : err.message
   });
 });
 
+/* ─── 6. SERVER INITIALIZATION ─────────────────────────── */
 const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV !== "production") {
-  app.listen(PORT, () => console.log(`Server on ${PORT}`));
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 }
+
+/* ─── 7. GRACEFUL SHUTDOWN ─────────────────────────────── */
+process.on("unhandledRejection", (err) => {
+  console.error("Unhandled Rejection:", err.message);
+});
 
 module.exports = app;
