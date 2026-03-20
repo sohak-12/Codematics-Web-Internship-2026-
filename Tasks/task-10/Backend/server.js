@@ -23,21 +23,15 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-// CORS Configuration
-const corsOptions = {
-  origin: [
-    process.env.CLIENT_URL,
-    "http://localhost:3000",
-    "https://sohas-atheneum.vercel.app", // Aapka naya frontend link
-    "https://sohanix-wealth.vercel.app"
-  ].filter(Boolean),
+app.use(cors({
+  origin: true, 
   credentials: true,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-};
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
+}));
 
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+// OPTIONS requests (Preflight) ko handle karne ke liye
+app.options("*", cors());
 
 app.use(helmet({
   crossOriginResourcePolicy: false,
