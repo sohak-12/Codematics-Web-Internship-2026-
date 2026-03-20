@@ -5,9 +5,11 @@ let isConnected = false;
 const connectDB = async () => {
   if (isConnected) return;
 
-  const mongoURI = process.env.MONGODB_URI;
+  // Check for both possible names to be safe
+  const mongoURI = process.env.MONGODB_URI || process.env.MONGO_URI;
+
   if (!mongoURI) {
-    throw new Error("MONGODB_URI is not defined in environment variables.");
+    throw new Error("Database URI (MONGODB_URI or MONGO_URI) is missing in environment variables.");
   }
 
   try {
@@ -16,6 +18,7 @@ const connectDB = async () => {
       maxPoolSize: 10,
     });
     isConnected = true;
+    console.log("MongoDB Connected Successfully!");
   } catch (error) {
     console.error("Database connection failed:", error.message);
     throw error;
