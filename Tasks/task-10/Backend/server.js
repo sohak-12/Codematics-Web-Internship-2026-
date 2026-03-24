@@ -17,23 +17,21 @@ const app = express();
 /* ─── 1. DATABASE CONNECTION ───────────────────────────── */
 connectDB();
 
-/* ─── 2. THE FINAL CORS FIX (Corrected Logic) ───────────── */
+/* ─── 2. DYNAMIC CORS FIX (Works with Vercel Preview URLs) ───────────── */
 app.use((req, res, next) => {
-  const allowedOrigins = [
-    "https://sohanixwealth-kdd5swtw1-sohak-12s-projects.vercel.app",
+  const origin = req.headers.origin;
+  
+  // Allow your production frontend
+  const productionOrigins = [
     "https://sohanix-wealth.vercel.app",
     "http://localhost:3000"
   ];
   
-  const origin = req.headers.origin;
-
-  // If the origin is in our list, allow it. 
-  // If no origin (like a mobile app or server-to-server), we usually let it pass.
-  if (allowedOrigins.includes(origin)) {
+  // Allow ANY Vercel preview URL (sohanixwealth-*.vercel.app)
+  const isVercelPreview = origin && origin.includes("sohanixwealth-") && origin.includes(".vercel.app");
+  
+  if (productionOrigins.includes(origin) || isVercelPreview) {
     res.setHeader("Access-Control-Allow-Origin", origin);
-  } else if (!origin) {
-    // Optional: Allow non-browser requests (Postman, etc.)
-    res.setHeader("Access-Control-Allow-Origin", "*");
   }
 
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
