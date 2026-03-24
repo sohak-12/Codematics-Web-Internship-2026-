@@ -17,9 +17,8 @@ const app = express();
 /* ─── 1. DATABASE CONNECTION ───────────────────────────── */
 connectDB();
 
-/* ─── 2. THE FINAL CORS FIX (Manual Headers) ───────────── */
+/* ─── 2. THE FINAL CORS FIX (Corrected Logic) ───────────── */
 app.use((req, res, next) => {
-  // Aapke sabhi frontend URLs ki list
   const allowedOrigins = [
     "https://sohanix-wealth-mk58njhr8-sohak-12s-projects.vercel.app",
     "https://sohanix-wealth.vercel.app",
@@ -27,15 +26,21 @@ app.use((req, res, next) => {
   ];
   
   const origin = req.headers.origin;
+
+  // If the origin is in our list, allow it. 
+  // If no origin (like a mobile app or server-to-server), we usually let it pass.
   if (allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
+  } else if (!origin) {
+    // Optional: Allow non-browser requests (Postman, etc.)
+    res.setHeader("Access-Control-Allow-Origin", "*");
   }
-  
+
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With, Accept");
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
-  // OPTIONS (Preflight) request handler
+  // CRITICAL: Handle the Preflight (OPTIONS) request immediately
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
@@ -47,11 +52,14 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-app.use(helmet({ crossOriginResourcePolicy: false }));
+// Security headers - specialized for Cross-Origin
+app.use(helmet({ 
+  crossOriginResourcePolicy: { policy: "cross-origin" },
+  crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" }
+}));
 app.use(express.json({ limit: "10kb" }));
 
 /* ─── 4. API ROUTES ────────────────────────────────────── */
-// Welcome Route
 app.get("/", (req, res) => {
   res.json({ success: true, message: "Sohanix Wealth API is Active!" });
 });
@@ -74,15 +82,11 @@ app.use((err, req, res, next) => {
 
 /* ─── 6. SERVER INITIALIZATION ─────────────────────────── */
 const PORT = process.env.PORT || 5000;
+// Note: Vercel doesn't use app.listen, it uses the exported module.
 if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
 }
-
-/* ─── 7. GRACEFUL SHUTDOWN ─────────────────────────────── */
-process.on("unhandledRejection", (err) => {
-  console.error("Unhandled Rejection:", err.message);
-});
 
 module.exports = app;
