@@ -20,7 +20,7 @@ connectDB();
 /* ─── 2. THE FINAL CORS FIX (Corrected Logic) ───────────── */
 app.use((req, res, next) => {
   const allowedOrigins = [
-    "https://sohanix-wealth-mk58njhr8-sohak-12s-projects.vercel.app",
+    "https://sohanixwealth-kdd5swtw1-sohak-12s-projects.vercel.app",
     "https://sohanix-wealth.vercel.app",
     "http://localhost:3000"
   ];
