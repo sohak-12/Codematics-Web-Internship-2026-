@@ -1,0 +1,22 @@
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1948:16)
+    at listenInCluster (node:net:2005:12)
+    at Server.listen (node:net:2110:7)
+    at app.listen (c:\Users\Administrator\Desktop\DIGITAL LOGBOOK WEB\Tasks\task-12\Backend\node_modules\express\lib\application.js:635:24)
+    at c:\Users\Administrator\Desktop\DIGITAL LOGBOOK WEB\Tasks\task-12\Backend\index.js:24:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1984:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8080
+}
+
+Node.js v24.14.0
