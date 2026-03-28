@@ -5,33 +5,36 @@ require('dotenv').config();
 const app = express();
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = process.env.TMDB_API_KEY;
+
 app.use(express.json());
 
-// Always include_adult: false and filter results
+// CORS — allow frontend
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  next();
+});
+
 const fetchFromTMDB = async (endpoint, params = {}) => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}${endpoint}`, {
-      params: { api_key: API_KEY, language: 'en-US', include_adult: false, ...params },
-    });
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching ${endpoint}:`, error.message);
-    throw error;
-  }
+  const response = await axiorker-index=7 reference-tracker>s.get(`${API_BASE_URL}${end</markndex=22 reference-tracker>>point}`, {
+    params: { api_key: API_KEindex=18 reference-tracker>e-tracker>Y, language: 'en-US', include_adult: false, ...pa<mark marker-index=10 reference-tracker>rams },
+  });
+  return response.data;
 };
 
-// Filter out any adult content from results array
-const filterSafe = (results) => {
+const filterSafe = (res/mark>er>ult reference-tracker>s) => {
   if (!Array.isArray(results)) return results;
-  return results.filter(item => !item.adult);
+  return result<mark marker-index=5 reference-tracker>s.filter(item => !item.adult);
 };
 
-const withPage = (req, res, next) => { req.query.page = req.query.page || 1; next(); };
+const withPagedex=16 reference-tracker>eference-tracker> = (req, res, next) => { req.query.page = req.query.page || 1; next(); };
 
 // ROOT
 app.get('/', (req, res) => res.json({ status: 'ok', message: 'Primeflix API is running' }));
 
-// ============ MOVIES ============
+// ========ex=14 reference-tracker>==== MOVIES ============
 app.get('/api/movie-trailer/:id', async (req, res) => {
   try { const data = await fetchFromTMDB(`/movie/${req.params.id}/videos`); res.json(data.results || []); }
   catch { res.json([]); }
@@ -208,7 +211,7 @@ app.get('/api/person/:id/tv-credits', async (req, res) => {
   } catch { res.status(500).json({ error: 'Error fetching TV credits' }); }
 });
 
-// ============ DISCOVER (with filters & sorting) ============
+// ============ DISCOVER ============
 app.get('/api/discover/movie', withPage, async (req, res) => {
   try {
     const params = { page: req.query.page, include_adult: false, include_video: false };
