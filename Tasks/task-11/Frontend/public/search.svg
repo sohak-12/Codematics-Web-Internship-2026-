@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <circle cx="200" cy="200" r="160" fill="none" stroke="url(#sg)" stroke-width="2" opacity="0.15"/>
+  <circle cx="200" cy="200" r="120" fill="none" stroke="url(#sg)" stroke-width="2" opacity="0.1"/>
+  <circle cx="175" cy="175" r="70" fill="none" stroke="url(#sg)" stroke-width="6"/>
+  <line x1="225" y1="225" x2="290" y2="290" stroke="url(#sg)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="175" cy="175" r="45" fill="url(#sg)" opacity="0.08"/>
+  <circle cx="160" cy="160" r="6" fill="url(#sg)" opacity="0.3"/>
+  <circle cx="190" cy="155" r="4" fill="url(#sg)" opacity="0.2"/>
+  <path d="M155 185 L195 185" stroke="url(#sg)" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+  <circle cx="100" cy="100" r="3" fill="#a855f7" opacity="0.5"/>
+  <circle cx="300" cy="120" r="4" fill="#38bdf8" opacity="0.4"/>
+  <circle cx="310" cy="310" r="3" fill="#c084fc" opacity="0.5"/>
+</svg>
