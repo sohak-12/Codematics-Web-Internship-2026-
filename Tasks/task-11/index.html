@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+        location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" type="image/png" href="/logo.png" sizes="180x180" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="o6j_tPrh5G0TBwamsonpXwyiPgAPidFCVKENy074GCg" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="primeflix is a free online movie and TV show discovery platform where you can explore the latest films, trending series, top-rated titles, popular actors, user reviews, trailers, and detailed information about the film industry. Easily search by genre, release year, or popularity to find what to watch next.">
+    <meta name="author" content="Danu Pratama">
+    <meta property="og:site_name" content="primeflix">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="primeflix App">
+    <meta property="og:description" content="Explore movies and TV shows with primeflix | your go to platform for discovering trending titles, new releases, famous actors, trailers, ratings, and more. Enjoy a seamless movie search experience powered by rich film data and smart filtering options.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://primeflix.vercel.app">
+    <meta property="og:image" content="https://primeflix.vercel.app/logo512.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="canonical" href="https://primeflix.vercel.app/" />
+    <title>primeflix</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "primeflix",
+        "url": "https://primeflix.vercel.app",
+        "description": "primeflix is a free online movie and TV show discovery platform where you can explore the latest films, trending series, top-rated titles, popular actors, user reviews, trailers, and detailed information about the film industry. Easily search by genre, release year, or popularity to find what to watch next.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "primeflix",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://primeflix.vercel.app/logo.png"
+          }
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Danu Pratama",
+          "url": "https://danutama.github.io/",
+          "sameAs": [
+            "https://github.com/danutama",
+            "https://github.com/danutama/reactjs-movie"
+          ]
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
