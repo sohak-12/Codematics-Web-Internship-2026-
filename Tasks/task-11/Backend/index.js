@@ -28,6 +28,9 @@ const filterSafe = (results) => {
 
 const withPage = (req, res, next) => { req.query.page = req.query.page || 1; next(); };
 
+// ROOT
+app.get('/', (req, res) => res.json({ status: 'ok', message: 'Primeflix API is running' }));
+
 // ============ MOVIES ============
 app.get('/api/movie-trailer/:id', async (req, res) => {
   try { const data = await fetchFromTMDB(`/movie/${req.params.id}/videos`); res.json(data.results || []); }
