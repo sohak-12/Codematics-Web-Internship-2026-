@@ -10,7 +10,7 @@ const AuthModal = () => {
   const [mode, setMode] = useState('login');
   const [showPw, setShowPw] = useState(false);
   const [verificationSent, setVerificationSent] = useState(false);
-  const { login, register: signUp, loginWithGoogle, resendVerification } = useAuth();
+  const { login, register: signUp, loginWithGoogle, resendVerification, resetPassword } = useAuth();
   const { register, handleSubmit, watch, formState: { errors, isSubmitting }, reset } = useForm();
   const pw = watch('password', '');
 
@@ -181,6 +181,18 @@ const AuthModal = () => {
                       </div>
                     )}
                   </div>
+
+                  {mode === 'login' && (
+                    <div className="text-end mb-2">
+                      <button type="button" onClick={async () => {
+                        const email = watch('email');
+                        if (!email) { toast.error('Enter your email first'); return; }
+                        try { await resetPassword(email); } catch { toast.error('Failed to send reset email'); }
+                      }} className="btn p-0" style={{ color: 'var(--accent)', fontSize: '0.8rem', border: 'none', background: 'none', fontWeight: 600 }}>
+                        Forgot Password?
+                      </button>
+                    </div>
+                  )}
 
                   <button type="submit" disabled={isSubmitting} className="btn btn-primary w-100 fw-bold" style={{ padding: '11px', borderRadius: 10, fontSize: '0.9rem' }}>
                     {isSubmitting ? (
