@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { auth, googleProvider, db } from '../config/firebase';
 import {
   onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword,
-  signInWithPopup, signOut, updateProfile, sendEmailVerification
+  signInWithPopup, signOut, updateProfile, sendEmailVerification, sendPasswordResetEmail
 } from 'firebase/auth';
 import { doc, setDoc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import toast from 'react-hot-toast';
@@ -64,6 +64,11 @@ export const AuthProvider = ({ children }) => {
     return cred.user;
   };
 
+  const resetPassword = async (email) => {
+    await sendPasswordResetEmail(auth, email);
+    toast.success('Password reset email sent! Check your inbox.');
+  };
+
   const logout = async () => { await signOut(auth); toast.success('Signed out'); };
 
   const toggleFavorite = async (item) => {
@@ -88,7 +93,7 @@ export const AuthProvider = ({ children }) => {
   const isFavorite = (id, type) => favorites.some(f => f.id === id && f.type === type);
 
   return (
-    <AuthContext.Provider value={{ user, loading, favorites, register, login, loginWithGoogle, logout, toggleFavorite, isFavorite, resendVerification }}>
+    <AuthContext.Provider value={{ user, loading, favorites, register, login, loginWithGoogle, logout, resetPassword, toggleFavorite, isFavorite, resendVerification }}>
       {children}
     </AuthContext.Provider>
   );
