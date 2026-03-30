@@ -1,0 +1,382 @@
+/* ═══════════════════════════════════════════════════════════
+   SOHAFY — ULTRA STELLAR AUTHENTICATION
+   Cinematic Aurora + Floating Products + Glassmorphic Form
+   ═══════════════════════════════════════════════════════════ */
+
+.nx-auth {
+  position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  overflow: hidden; font-family: 'Inter', system-ui, sans-serif;
+  background: #030014;
+}
+
+/* ── AURORA MESH BACKGROUND ── */
+.nx-aurora {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden;
+}
+.nx-aurora-blob {
+  position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.5;
+  animation: auroraFloat 12s ease-in-out infinite alternate;
+}
+.nx-aurora-blob:nth-child(1) {
+  width: 700px; height: 700px; top: -20%; left: -10%;
+  background: radial-gradient(circle, rgba(124,58,237,0.6), transparent 70%);
+  animation-duration: 14s;
+}
+.nx-aurora-blob:nth-child(2) {
+  width: 600px; height: 600px; bottom: -15%; right: -10%;
+  background: radial-gradient(circle, rgba(168,85,247,0.5), transparent 70%);
+  animation-duration: 10s; animation-delay: -3s;
+}
+.nx-aurora-blob:nth-child(3) {
+  width: 500px; height: 500px; top: 40%; left: 50%;
+  background: radial-gradient(circle, rgba(236,72,153,0.3), transparent 70%);
+  animation-duration: 16s; animation-delay: -6s;
+}
+.nx-aurora-blob:nth-child(4) {
+  width: 400px; height: 400px; top: 10%; right: 20%;
+  background: radial-gradient(circle, rgba(59,130,246,0.25), transparent 70%);
+  animation-duration: 18s; animation-delay: -9s;
+}
+@keyframes auroraFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(30px, -10px) scale(1.05); }
+}
+
+/* ── GRID OVERLAY ── */
+.nx-grid-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* ── FLOATING STARS ── */
+.nx-stars {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+}
+.nx-star {
+  position: absolute; border-radius: 50%; background: white;
+  animation: starTwinkle 3s ease-in-out infinite;
+}
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.5); }
+}
+
+/* ── MAIN LAYOUT ── */
+.nx-layout {
+  position: relative; z-index: 10; display: flex; align-items: center;
+  gap: 4rem; width: 100%; max-width: 1200px; padding: 2rem;
+}
+
+/* ── LEFT: FLOATING PRODUCT SHOWCASE ── */
+.nx-showcase {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2.5rem;
+  position: relative;
+}
+
+.nx-brand-section { text-align: center; }
+.nx-brand-row {
+  display: flex; align-items: center; gap: 1rem; justify-content: center; margin-bottom: 0.75rem;
+}
+.nx-brand-icon {
+  width: 56px; height: 56px; border-radius: 18px; display: flex; align-items: center; justify-content: center;
+  background: rgba(124,58,237,0.15); border: 1px solid rgba(168,85,247,0.4);
+  box-shadow: 0 0 40px rgba(168,85,247,0.3); position: relative;
+}
+.nx-brand-icon img { width: 36px; height: 36px; object-fit: contain; }
+.nx-brand-icon::after {
+  content: ''; position: absolute; inset: -3px; border-radius: 21px;
+  border: 2px solid rgba(168,85,247,0.4);
+  animation: iconRing 2s ease-in-out infinite;
+}
+@keyframes iconRing {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 0; }
+}
+.nx-brand-name {
+  font-size: 3rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: white;
+}
+.nx-brand-name span {
+  background: linear-gradient(135deg, #a855f7, #ec4899, #f59e0b);
+  background-size: 200% 200%; animation: gradShift 4s ease infinite;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+@keyframes gradShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+.nx-tagline {
+  color: #94a3b8; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center;
+}
+
+/* ── FLOATING 3D PRODUCT CARDS ── */
+.nx-floating-products {
+  position: relative; width: 420px; height: 340px; perspective: 1200px;
+}
+
+.nx-float-card {
+  position: absolute; border-radius: 20px; overflow: hidden; cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 60px -15px rgba(0,0,0,0.6), 0 0 30px rgba(168,85,247,0.15);
+  transition: all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  background: rgba(15,10,30,0.8); backdrop-filter: blur(20px);
+}
+.nx-float-card:hover {
+  z-index: 20 !important;
+  box-shadow: 0 30px 80px -10px rgba(168,85,247,0.4), 0 0 50px rgba(168,85,247,0.2);
+  border-color: rgba(168,85,247,0.4);
+}
+
+.nx-float-card:nth-child(1) {
+  width: 200px; height: 260px; top: 0; left: 0; z-index: 3;
+  transform: rotate(-6deg) translateZ(40px);
+  animation: float1 6s ease-in-out infinite;
+}
+.nx-float-card:nth-child(2) {
+  width: 180px; height: 240px; top: 20px; right: 0; z-index: 2;
+  transform: rotate(5deg) translateZ(20px);
+  animation: float2 7s ease-in-out infinite;
+}
+.nx-float-card:nth-child(3) {
+  width: 170px; height: 220px; bottom: 0; left: 50%; z-index: 1;
+  transform: translateX(-50%) rotate(-2deg) translateZ(0px);
+  animation: float3 8s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: rotate(-6deg) translateY(0) translateZ(40px); }
+  50% { transform: rotate(-4deg) translateY(-15px) translateZ(50px); }
+}
+@keyframes float2 {
+  0%, 100% { transform: rotate(5deg) translateY(0) translateZ(20px); }
+  50% { transform: rotate(3deg) translateY(-20px) translateZ(30px); }
+}
+@keyframes float3 {
+  0%, 100% { transform: translateX(-50%) rotate(-2deg) translateY(0) translateZ(0); }
+  50% { transform: translateX(-50%) rotate(0deg) translateY(-12px) translateZ(10px); }
+}
+
+.nx-float-img {
+  width: 100%; height: 65%; object-fit: cover;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nx-float-info { padding: 12px 14px; }
+.nx-float-brand {
+  font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+  color: #a855f7; margin-bottom: 3px;
+}
+.nx-float-name {
+  font-size: 0.8rem; font-weight: 700; color: #f1f5f9; line-height: 1.2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.nx-float-price {
+  font-size: 0.85rem; font-weight: 900; color: #c084fc; margin-top: 4px;
+}
+.nx-float-old {
+  font-size: 0.65rem; color: #64748b; text-decoration: line-through; margin-left: 6px;
+}
+.nx-float-badge {
+  position: absolute; top: 10px; left: 10px;
+  background: linear-gradient(135deg, #ef4444, #ec4899); color: white;
+  font-size: 0.55rem; font-weight: 800; padding: 3px 8px; border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(239,68,68,0.4);
+}
+
+/* ── TRUST BADGES ── */
+.nx-trust-row {
+  display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;
+}
+.nx-trust-chip {
+  display: flex; align-items: center; gap: 0.5rem;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 50px; padding: 8px 16px; backdrop-filter: blur(10px);
+  transition: all 0.3s;
+}
+.nx-trust-chip:hover {
+  background: rgba(168,85,247,0.1); border-color: rgba(168,85,247,0.3);
+  transform: translateY(-2px);
+}
+.nx-trust-icon { color: #a855f7; flex-shrink: 0; }
+.nx-trust-text { font-size: 0.72rem; font-weight: 600; color: #cbd5e1; }
+
+/* ── RIGHT: GLASSMORPHIC AUTH FORM ── */
+.nx-form-panel {
+  flex: 0 0 440px; position: relative;
+}
+
+.nx-form-card {
+  position: relative; padding: 2.5rem;
+  background: rgba(10, 6, 24, 0.65);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(168,85,247,0.15);
+  border-radius: 32px;
+  box-shadow:
+    0 30px 80px -20px rgba(0,0,0,0.7),
+    0 0 60px -10px rgba(168,85,247,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+/* Animated border glow */
+.nx-form-card::before {
+  content: ''; position: absolute; inset: -1px; border-radius: 33px; z-index: -1;
+  background: conic-gradient(from 0deg, transparent, rgba(168,85,247,0.4), transparent, rgba(236,72,153,0.3), transparent);
+  animation: borderSpin 6s linear infinite;
+  opacity: 0.5;
+}
+@keyframes borderSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.nx-form-card::after {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 250px; height: 250px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.12), transparent 70%);
+  pointer-events: none;
+}
+
+/* Header */
+.nx-form-header { margin-bottom: 1.75rem; position: relative; z-index: 1; }
+.nx-form-header h2 {
+  font-size: 1.8rem; font-weight: 800; margin-bottom: 0.4rem; line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #a78bfa 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.nx-form-header p { color: #64748b; font-size: 0.88rem; }
+
+.nx-back-link {
+  display: inline-flex; align-items: center; gap: 4px; color: #a855f7; font-size: 0.82rem;
+  font-weight: 500; background: none; border: none; cursor: pointer; padding: 0; margin-bottom: 1rem;
+  transition: all 0.2s;
+}
+.nx-back-link:hover { color: #c084fc; transform: translateX(-3px); }
+
+/* Google Button */
+.nx-google-btn {
+  width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 13px; border-radius: 16px; font-weight: 600; font-size: 0.88rem;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  color: #f1f5f9; cursor: pointer; transition: all 0.3s; position: relative; z-index: 1;
+  backdrop-filter: blur(10px);
+}
+.nx-google-btn:hover {
+  background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+}
+
+.nx-divider {
+  display: flex; align-items: center; gap: 12px; margin: 1.25rem 0; position: relative; z-index: 1;
+}
+.nx-divider-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
+.nx-divider-text { color: rgba(255,255,255,0.3); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Error / Success */
+.nx-error {
+  padding: 10px 14px; border-radius: 14px; margin-bottom: 1rem; font-size: 0.82rem; font-weight: 500;
+  background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); color: #f87171;
+  position: relative; z-index: 1;
+}
+.nx-success {
+  padding: 10px 14px; border-radius: 14px; margin-bottom: 1rem; font-size: 0.82rem; font-weight: 500;
+  background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); color: #34d399;
+  position: relative; z-index: 1;
+}
+
+/* Form */
+.nx-form { position: relative; z-index: 1; }
+
+.nx-field { margin-bottom: 1rem; }
+.nx-field-label {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;
+}
+.nx-field-label label {
+  font-size: 0.72rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px;
+}
+.nx-forgot-link {
+  font-size: 0.72rem; color: #a855f7; background: none; border: none; cursor: pointer; font-weight: 500; padding: 0;
+}
+.nx-forgot-link:hover { color: #c084fc; text-decoration: underline; }
+
+.nx-input-wrap {
+  display: flex; align-items: center; gap: 10px; padding: 0 14px;
+  background: transparent; border: 1.5px solid rgba(168,85,247,0.3);
+  border-radius: 14px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.nx-input-wrap:focus-within {
+  border-color: rgba(168,85,247,0.6);
+  background: transparent;
+  box-shadow: 0 0 0 3px rgba(168,85,247,0.1), 0 0 25px rgba(168,85,247,0.1);
+}
+.nx-input-icon { color: #7c3aed; flex-shrink: 0; transition: all 0.3s; }
+.nx-input-wrap:focus-within .nx-input-icon { color: #a855f7; filter: drop-shadow(0 0 6px rgba(168,85,247,0.5)); }
+
+.nx-input-wrap input {
+  width: 100%; padding: 13px 0; background: transparent; border: none;
+  color: #f1f5f9; outline: none; font-size: 0.9rem; font-family: inherit;
+}
+.nx-input-wrap input::placeholder { color: #6b7280; }
+.nx-input-wrap input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  -webkit-text-fill-color: #f1f5f9;
+  background: transparent !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.nx-eye-btn {
+  background: none; border: none; color: #475569; cursor: pointer; padding: 4px;
+  display: flex; transition: color 0.2s;
+}
+.nx-eye-btn:hover { color: #a855f7; }
+
+/* Submit Button */
+.nx-submit {
+  width: 100%; padding: 14px; margin-top: 0.5rem;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 40%, #c084fc 100%);
+  background-size: 200% 200%; animation: gradShift 4s ease infinite;
+  color: white; border: none; border-radius: 16px;
+  font-weight: 700; font-size: 0.88rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  box-shadow: 0 8px 30px -5px rgba(168,85,247,0.5);
+  text-transform: uppercase; letter-spacing: 1.5px;
+  position: relative; overflow: hidden; transition: all 0.3s;
+}
+.nx-submit:hover {
+  box-shadow: 0 12px 40px -5px rgba(168,85,247,0.6);
+  transform: translateY(-2px);
+}
+.nx-submit:active { transform: translateY(0) scale(0.98); }
+.nx-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.nx-submit::before {
+  content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: skewX(-20deg); animation: btnShine 3s infinite;
+}
+@keyframes btnShine { 0% { left: -100%; } 50%,100% { left: 150%; } }
+
+/* Footer */
+.nx-form-footer {
+  margin-top: 1.5rem; text-align: center; position: relative; z-index: 1;
+}
+.nx-form-footer p { color: #475569; font-size: 0.85rem; }
+.nx-toggle-btn {
+  color: #a855f7; background: none; border: none; font-weight: 600;
+  cursor: pointer; margin-left: 4px; font-size: 0.85rem;
+  text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px;
+}
+.nx-toggle-btn:hover { color: #c084fc; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .nx-layout { flex-direction: column; gap: 2rem; }
+  .nx-showcase { display: none; }
+  .nx-form-panel { flex: none; width: 100%; max-width: 440px; }
+}
+@media (max-width: 480px) {
+  .nx-form-card { padding: 1.75rem; border-radius: 24px; }
+  .nx-form-header h2 { font-size: 1.5rem; }
+}
