@@ -75,6 +75,8 @@ These features were **not required** by the SRD but were implemented to push the
 | Auth | Supabase Auth (Email/Password + Google OAuth) |
 | Voice AI | Vapi AI SDK (@vapi-ai/web) — Real-time voice interviews |
 | AI Feedback | Google Gemini 1.5 Flash API — Interview analysis |
+
+> **Note on AI Model Choice:** The SRD recommended OpenAI GPT-4 / GPT-4o for feedback generation. However, OpenAI's API requires a paid subscription with usage-based billing ($0.03–$0.06 per 1K tokens for GPT-4o), which was not feasible for an internship project with no allocated API budget. Additionally, GPT-4 has strict rate limits on free-tier accounts and requires credit card verification. Google Gemini 1.5 Flash was chosen as the production alternative because it offers **free-tier access** with generous rate limits (15 RPM / 1M TPM), delivers comparable structured JSON output quality, and supports the same prompt engineering techniques — making it the ideal cost-effective choice without compromising on feedback quality or functionality.
 | Charts | Recharts (Performance graphs) |
 | Report Export | html2canvas-pro (PNG screenshot download) |
 | Notifications | Sonner (Toast notifications) |
