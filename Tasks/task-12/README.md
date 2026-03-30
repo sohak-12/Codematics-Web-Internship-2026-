@@ -2,9 +2,14 @@
 
 ## Overview
 
-A complete e-commerce platform built with React (Frontend) and Node.js/Express (Backend), featuring Firebase Authentication, 
-MongoDB database, Redux Toolkit state management, admin dashboard with product CRUD, shopping cart, checkout, order management,
-and revenue analytics.
+A complete e-commerce platform built with React (Frontend) and Node.js/Express (Backend), featuring Firebase Authentication, MongoDB database, Redux Toolkit state management, admin dashboard with product CRUD, shopping cart, checkout, order management, and revenue analytics.
+
+### 🔗 Live Demo
+
+| | URL |
+|--|-----|
+| **Frontend** | [https://sohafy.vercel.app](https://sohafy.vercel.app) |
+| **Backend API** | [https://sohafy-backend.vercel.app/api](https://sohafy-backend.vercel.app/api) |
 
 ---
 
@@ -229,10 +234,13 @@ npm start        # runs on http://localhost:3000
 Create a `.env` file in `Frontend/`:
 
 ```env
-REACT_APP_API_URL=http://localhost:8080
 REACT_APP_FIREBASE_API_KEY=your_key
 REACT_APP_FIREBASE_AUTH_DOMAIN=your_domain
 REACT_APP_FIREBASE_PROJECT_ID=your_project
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+REACT_APP_FIREBASE_APP_ID=your_app_id
+REACT_APP_CLOUD_NAME_CLOUDINARY=your_cloudinary_name
 ```
 
 ### Build for Production
@@ -376,28 +384,19 @@ userId (ref), productId (ref), quantity
 
 Building this full-stack e-commerce platform was the most complex project I've tackled. Here are the key challenges I overcame:
 
-- **MongoDB Schema Design** — Designed three interconnected schemas (Account, Item, Basket) with Mongoose, learning about references,
-                              population, and aggregation pipelines for category-based product grouping.
-  
-- **JWT + Firebase Dual Auth** — Implemented a hybrid authentication system where Firebase handles the frontend auth (Google + Email)
-                                 and JWT handles backend API protection with HTTP-only cookies. Understanding how these two systems work
-                                 together was a major learning milestone.
-  
-- **Redux Toolkit for State Management** — Learned to manage complex global state (user info, role, cart count) using Redux Toolkit
-                                           slices, and how to connect Redux state to React Router for role-based route protection.
-  
-- **Admin Dashboard Architecture** — Built a complete admin panel with product CRUD, user management, order tracking, and revenue
-                                     analytics. Learned how to structure admin vs customer routes and enforce role-based access
-                                     control on both frontend and backend.
-  
-- **Shopping Cart System** — Implemented a full cart system with backend persistence (MongoDB) and frontend state sync, handling
-                             edge cases like quantity updates, item removal, and cart count badges.
-  
-- **Recharts Data Visualization** — Integrated Recharts for revenue analytics, learning how to transform raw order data into meaningful
-                                    charts and graphs for the admin dashboard.
-  
-- **Material UI + Tailwind CSS Hybrid** — Learned to use Material UI components alongside Tailwind CSS utility classes, understanding when
-                                          to use each and how to make them work together without conflicts.
+- **MongoDB Schema Design** — Designed three interconnected schemas (Account, Item, Basket) with Mongoose, learning about references, population, and aggregation pipelines for category-based product grouping.
+
+- **JWT + Firebase Dual Auth** — Implemented a hybrid authentication system where Firebase handles the frontend auth (Google + Email) and JWT handles backend API protection with HTTP-only cookies. Understanding how these two systems work together was a major learning milestone.
+
+- **Redux Toolkit for State Management** — Learned to manage complex global state (user info, role, cart count) using Redux Toolkit slices, and how to connect Redux state to React Router for role-based route protection.
+
+- **Admin Dashboard Architecture** — Built a complete admin panel with product CRUD, user management, order tracking, and revenue analytics. Learned how to structure admin vs customer routes and enforce role-based access control on both frontend and backend.
+
+- **Shopping Cart System** — Implemented a full cart system with backend persistence (MongoDB) and frontend state sync, handling edge cases like quantity updates, item removal, and cart count badges.
+
+- **Recharts Data Visualization** — Integrated Recharts for revenue analytics, learning how to transform raw order data into meaningful charts and graphs for the admin dashboard.
+
+- **Material UI + Tailwind CSS Hybrid** — Learned to use Material UI components alongside Tailwind CSS utility classes, understanding when to use each and how to make them work together without conflicts.
 
 ---
 
