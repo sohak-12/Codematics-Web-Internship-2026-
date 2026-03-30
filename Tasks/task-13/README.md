@@ -2,9 +2,64 @@
 
 ## Overview
 
-A full-stack AI interview preparation platform built with Next.js 16 (Frontend) and Node.js/Express (Backend). Features real-time voice 
-interviews via Vapi AI, AI-powered feedback generation via Google Gemini 1.5 Flash, Supabase Authentication & Database with Row Level 
-Security, and an ultra-premium glassmorphism UI with animated 3D robot mascot, confetti celebrations, and downloadable reports.
+A full-stack AI interview preparation platform built with Next.js 16 (Frontend) and Node.js/Express (Backend). Features real-time voice interviews via Vapi AI, AI-powered feedback generation via Google Gemini 1.5 Flash, Supabase Authentication & Database with Row Level Security, and an ultra-premium glassmorphism UI with animated 3D robot mascot, confetti celebrations, and downloadable reports.
+
+### 🔗 Live Demo
+
+| | URL |
+|--|-----|
+| **Frontend** | [https://preplyx.vercel.app](https://preplyx.vercel.app) |
+| **Backend API** | [https://preplyx-backend.vercel.app/api](https://preplyx-backend.vercel.app/api) |
+
+---
+
+## 🏆 SRD Compliance & Beyond
+
+This project was built against a detailed **Software Requirement Document (SRD)** — and goes significantly beyond it.
+
+### ✅ SRD Requirements Delivered (100%)
+
+| Requirement | Status |
+|---|---|
+| User Authentication (Email + Google OAuth) | ✅ Supabase Auth |
+| 13 Interview Category Cards | ✅ All 13 implemented |
+| Vapi Voice AI — Real-time voice interviews | ✅ Full SDK integration |
+| Live Transcript during interview | ✅ Real-time Q&A display |
+| AI Feedback Generation (Scores + Analysis) | ✅ Google Gemini 1.5 Flash |
+| 4-Metric Scoring (Communication, Technical, Confidence, Problem Solving) | ✅ All 4 with animated rings |
+| Strengths, Weaknesses & Suggestions | ✅ Color-coded premium cards |
+| User Dashboard with Interview History | ✅ Stats, graph, history list |
+| Improvement Graph over time | ✅ Recharts AreaChart |
+| Feedback Report Page | ✅ Ultra-premium with grade system |
+| Interview Screen (Voice UI, Timer, Mute, End button, Transcript) | ✅ All components |
+| Database (Users, Interviews, Transcripts) | ✅ Supabase PostgreSQL + RLS |
+| Admin Dashboard (Stats, Interviews, Scores) | ✅ Platform analytics |
+| Landing Page | ✅ Hero + Features + Categories |
+| Login / Signup Pages | ✅ Split-panel cinematic design |
+| JWT / Auth Protection | ✅ Supabase + authMiddleware |
+| API Key Protection (Backend-only) | ✅ Service role key never exposed |
+| Vercel Deployment | ✅ Frontend + Backend |
+
+### 🚀 Extra Features (Beyond SRD)
+
+These features were **not required** by the SRD but were implemented to push the project to a production-grade, portfolio-worthy level:
+
+| Feature | Description |
+|---|---|
+| 🤖 **Animated 3D Robot Mascot** | Pure SVG robot with blinking eyes, waving arms, pulsing antenna, and floating hover — zero external 3D libraries |
+| 🎊 **Confetti Celebrations** | 40 animated particles burst on feedback page load to celebrate interview completion |
+| 🏅 **Grade System (S+/S/A/B/C/D)** | Anime-inspired grading: S+ (Legendary), S (Outstanding), A (Excellent), B (Good), C (Needs Work), D (Keep Practicing) |
+| 📥 **Downloadable PNG Reports** | Full feedback report exported as high-res 2x PNG via html2canvas-pro |
+| 🔥 **Practice Streak Tracking** | Consecutive day tracking with fire badge on dashboard |
+| 🌙 **Dark / Light Theme** | Full theme system with CSS variables, glassmorphism adapts to both modes, persists in localStorage |
+| 🛡️ **Helmet Security Headers** | Enterprise-grade HTTP security headers on backend |
+| 🎨 **Ultra-Premium Glassmorphism UI** | Gradient borders, glowing score rings, shimmer effects, floating orbs, animated particles — a UI that genuinely stands out |
+| 🔄 **OTP Email Verification** | 6-digit code verification on signup with auto-focus, paste support, resend cooldown |
+| 🧹 **NaN-Safe AI Pipeline** | Defensive rendering for unpredictable Gemini responses — multiple key fallbacks, `Number.isFinite()` checks, generous defaults |
+| 📊 **Animated Score Rings** | Custom SVG rings with stroke-dasharray animation, glow halos, and counting animations |
+| 🎭 **Auth Showcase Panel** | 4-slide rotating demo window on login/signup with browser frame, mesh grid, and floating particles |
+| ⚡ **Animated Number Counters** | Stats count up from 0 on dashboard load for a premium feel |
+| 🌊 **Floating Ambient Orbs** | Animated background orbs on dashboard and feedback pages for depth |
 
 ---
 
@@ -105,8 +160,7 @@ task-13/
 
 ### Login Page (`/login`)
 - Split-panel layout (left showcase + right form)
-- **Left Panel:** AuthShowcase component — browser frame window with 4 rotating demo slides (scores, transcript, categories, feedback),
-                  mesh grid background, glowing orbs (purple, pink, cyan), floating particles, Robot3D mascot
+- **Left Panel:** AuthShowcase component — browser frame window with 4 rotating demo slides (scores, transcript, categories, feedback), mesh grid background, glowing orbs (purple, pink, cyan), floating particles, Robot3D mascot
 - **Right Panel:** Email/password form, sign in button with loading state, compact Google sign-in button, link to signup, theme toggle
 - Navbar hidden on auth pages
 
@@ -118,8 +172,7 @@ task-13/
 - Error handling for duplicate emails and disabled providers
 
 ### Dashboard (`/dashboard`)
-- **3D Robot Mascot** — Pure SVG animated robot with gradient body, glowing cyan eyes (blink every 3s), pulsing antenna, animated mouth,
-                        waving arms, floating hover animation
+- **3D Robot Mascot** — Pure SVG animated robot with gradient body, glowing cyan eyes (blink every 3s), pulsing antenna, animated mouth, waving arms, floating hover animation
 - **Animated Stats Cards** — Total interviews, average score, best score, streak count with counting animations from 0
 - **Performance Graph** — Recharts line/area chart showing score history over time
 - **Interview History** — List of past interviews with grade badges (S+/S/A/B/C/D), scores, dates
@@ -135,8 +188,7 @@ task-13/
 - Status tracking: idle → connecting → active → ended
 - Voice activity visualization
 - End interview button
-- 13 categories: Frontend, Backend, Full Stack, Technical, HR, Behavioral, System Design, React, Next.js, JavaScript, DSA, DevOps,
-                 AI Engineer
+- 13 categories: Frontend, Backend, Full Stack, Technical, HR, Behavioral, System Design, React, Next.js, JavaScript, DSA, DevOps, AI Engineer
 
 ### Feedback Report (`/feedback/[id]`)
 - **Confetti Celebration** — 40 animated particles burst on load
@@ -358,39 +410,38 @@ PORT=5000
 
 ## 🧠 What I Learned (The Journey)
 
-Building this AI-powered interview platform was the most technically challenging and rewarding project of my entire course. Here are the 
-key challenges I overcame:
+Building this AI-powered interview platform was the most technically challenging and rewarding project of my entire course. Here are the key challenges I overcame:
 
-- **Voice AI Integration (Vapi)** — Integrated real-time voice AI for conducting interviews, learning how to handle WebRTC connections,
-                                    speech-to-text processing, and graceful error handling for edge cases like "Meeting has ended" errors
-                                    that required console error suppression.
+- **Voice AI Integration (Vapi)** — Integrated real-time voice AI for conducting interviews, learning how to handle WebRTC connections, speech-to-text processing, and graceful error handling for edge cases like "Meeting has ended" errors that required console error suppression.
 
-- **Google Gemini API for Structured Output** — Learned to prompt-engineer Gemini 1.5 Flash to return consistent JSON feedback, and built
-                                                a comprehensive sanitizer to handle inconsistent key names (`overallScore` vs `overall_score`
-                                                vs `score`) that Gemini sometimes returns despite explicit instructions.
+- **Google Gemini API for Structured Output** — Learned to prompt-engineer Gemini 1.5 Flash to return consistent JSON feedback, and built a comprehensive sanitizer to handle inconsistent key names (`overallScore` vs `overall_score` vs `score`) that Gemini sometimes returns despite explicit instructions.
 
-- **Supabase Row Level Security** — Implemented PostgreSQL RLS policies ensuring users can only access their own interviews and transcripts.
-                                    Understanding how `auth.uid()` works in RLS policies and how to write sub-query policies for related
-                                    tables was a major learning milestone.
+- **Supabase Row Level Security** — Implemented PostgreSQL RLS policies ensuring users can only access their own interviews and transcripts. Understanding how `auth.uid()` works in RLS policies and how to write sub-query policies for related tables was a major learning milestone.
 
-- **Next.js 16 App Router with TypeScript** — Built the entire frontend with Next.js App Router, server/client components, dynamic routes
--                                             (`[id]`, `[category]`), route groups (`(auth)`), and maintained zero TypeScript errors throughout
--                                             development.
+- **Next.js 16 App Router with TypeScript** — Built the entire frontend with Next.js App Router, server/client components, dynamic routes (`[id]`, `[category]`), route groups (`(auth)`), and maintained zero TypeScript errors throughout development.
 
-- **Pure SVG Animation (Robot3D)** — Created a fully animated 3D robot mascot using only SVG and CSS — no external 3D libraries. Learned SVG
--                                    gradients, clip paths, and CSS keyframe animations for blinking eyes, waving arms, and floating hover effects.
+- **Pure SVG Animation (Robot3D)** — Created a fully animated 3D robot mascot using only SVG and CSS — no external 3D libraries. Learned SVG gradients, clip paths, and CSS keyframe animations for blinking eyes, waving arms, and floating hover effects.
 
-- **html2canvas for Report Export** — Implemented report download as PNG using html2canvas-pro, learning how to handle CSS variables,
-                                      glassmorphism effects, and dark/light themes in canvas rendering at 2x resolution.
+- **html2canvas for Report Export** — Implemented report download as PNG using html2canvas-pro, learning how to handle CSS variables, glassmorphism effects, and dark/light themes in canvas rendering at 2x resolution.
 
-- **NaN-Safe Rendering** — Discovered that AI APIs can return unpredictable data formats. Built defensive rendering throughout the entire
-                           feedback pipeline using `Number.isFinite()` checks, multiple key name fallbacks, and encouraging default values
-                           instead of showing broken UI.
+- **NaN-Safe Rendering** — Discovered that AI APIs can return unpredictable data formats. Built defensive rendering throughout the entire feedback pipeline using `Number.isFinite()` checks, multiple key name fallbacks, and encouraging default values instead of showing broken UI.
 
-- **Premium UI/UX Design** — Pushed my CSS skills to the limit with glassmorphism, animated confetti, floating orbs, gradient borders,
-                             glowing score rings, shimmer effects, and a complete grade system (S+/S/A/B/C/D) — all while maintaining
-                             dark/light theme compatibility.
+- **Premium UI/UX Design** — Pushed my CSS skills to the limit with glassmorphism, animated confetti, floating orbs, gradient borders, glowing score rings, shimmer effects, and a complete grade system (S+/S/A/B/C/D) — all while maintaining dark/light theme compatibility.
+
+---
+
+## 💡 Why This Project Stands Out
+
+This isn't just another CRUD app with an AI wrapper. Every pixel, every animation, and every line of code was crafted with intention:
+
+- **Real AI Integration** — Not a mock or simulation. Real voice conversations with an AI interviewer that listens, thinks, and responds naturally via Vapi + OpenAI.
+- **Production-Grade Architecture** — Supabase RLS, Helmet headers, CORS whitelisting, TypeScript strict mode, proper error boundaries — built like a real product, not a demo.
+- **UI That Competes with SaaS Products** — The glassmorphism design, animated score rings, confetti celebrations, and 3D robot mascot create an experience that feels like a premium paid platform.
+- **Defensive AI Pipeline** — AI APIs are unpredictable. The entire feedback pipeline is built to gracefully handle any response format Gemini throws back — no broken UI, ever.
+- **8 Weeks of Growth** — From zero-div HTML layouts in Week 1 to a full-stack AI-powered voice interview platform in Week 8. This project represents the culmination of an entire internship journey.
 
 ---
 
 **Author:** Soha Muzammil — *Intern at Codematics*
+
+> *"The best way to predict the future is to build it."* — This project is proof of that.
