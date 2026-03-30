@@ -23,7 +23,9 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
-  const { signIn, signInWithGoogle, user, loading: authLoading } = useAuth();
+  const [forgotMode, setForgotMode] = useState(false);
+  const [resetLoading, setResetLoading] = useState(false);
+  const { signIn, signInWithGoogle, resetPassword, user, loading: authLoading } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -63,6 +65,19 @@ export default function LoginPage() {
         toast.error(msg);
       }
     } finally { setLoading(false); }
+  };
+
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) { toast.error("Please enter your email"); return; }
+    setResetLoading(true);
+    try {
+      await resetPassword(email);
+      toast.success("Password reset link sent! Check your email.");
+      setForgotMode(false);
+    } catch (err: any) {
+      toast.error(err.message || "Failed to send reset link");
+    } finally { setResetLoading(false); }
   };
 
   const handleGoogle = async () => {
@@ -217,6 +232,25 @@ export default function LoginPage() {
             </div>
 
             {/* Email/Password Form */}
+            {forgotMode ? (
+              <form onSubmit={handleForgotPassword} className="space-y-4">
+                <div>
+                  <label className="text-[11px] font-semibold text-[var(--text-muted)] mb-1.5 block uppercase tracking-wider">Email</label>
+                  <div className="relative group">
+                    <Mail className="absolute left-3.5 top-3 w-4 h-4 text-[var(--text-muted)] group-focus-within:text-[var(--accent)] transition-colors" />
+                    <Input type="email" placeholder="name@domain.com" value={email} onChange={(e) => setEmail(e.target.value)} className="pl-10" required />
+                  </div>
+                </div>
+                <motion.button type="submit" className="btn-glow w-full !py-2.5 !mt-5" disabled={resetLoading} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  {resetLoading ? (
+                    <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</span>
+                  ) : (
+                    <span className="flex items-center gap-2">Send Reset Link <ArrowRight className="w-4 h-4" /></span>
+                  )}
+                </motion.button>
+                <button type="button" onClick={() => setForgotMode(false)} className="w-full text-center text-xs text-[var(--accent)] font-semibold hover:underline mt-2">Back to Sign In</button>
+              </form>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="text-[11px] font-semibold text-[var(--text-muted)] mb-1.5 block uppercase tracking-wider">Email</label>
@@ -250,7 +284,9 @@ export default function LoginPage() {
                   <span className="flex items-center gap-2">Sign In <ArrowRight className="w-4 h-4" /></span>
                 )}
               </motion.button>
+              <button type="button" onClick={() => setForgotMode(true)} className="w-full text-center text-xs text-[var(--text-muted)] hover:text-[var(--accent)] font-medium mt-1 transition-colors">Forgot password?</button>
             </form>
+            )}
 
             {/* Divider */}
             <div className="relative my-5">
