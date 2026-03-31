@@ -34,7 +34,7 @@
 (function () {
     const el = document.querySelector('.typed-text');
     const texts = [
-        'Frontend & Full-Stack projects — all live and accessible',
+        'Frontend & Full-Stack projects all live and accessible',
         'Full-stack apps deployed on Vercel with live demo links',
         'React, Next.js, Node.js, Firebase, Supabase — all included',
     ];
