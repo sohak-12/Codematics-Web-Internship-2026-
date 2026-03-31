@@ -34,7 +34,9 @@
 (function () {
     const el = document.querySelector('.typed-text');
     const texts = [
-        'Frontend & Fullstack Development Journey',
+        'Frontend & Full-Stack projects — all live and accessible',
+        'Full-stack apps deployed on Vercel with live demo links',
+        'React, Next.js, Node.js, Firebase, Supabase — all included',
     ];
     let ti = 0, ci = 0, deleting = false;
 
@@ -79,7 +81,7 @@
 
 /* ── CARD MOUSE TILT ── */
 (function () {
-    document.querySelectorAll('.card:not(.card--disabled)').forEach(card => {
+    document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('mousemove', e => {
             const r = card.getBoundingClientRect();
             const x = (e.clientX - r.left) / r.width  - 0.5;
