@@ -1,6 +1,8 @@
-# Codematics Internship 2026 – Frontend Tasks Logbook
+# Codematics Internship 2026 – Digital Logbook
 
 Welcome to my digital logbook! This repository showcases my journey as a **Web Development Intern at Codematics**. It tracks my progress from mastering core HTML/CSS structures to building complex, high-fidelity responsive designs, interactive JavaScript applications, and full-stack AI-powered platforms.
+
+The logbook includes both **frontend tasks** (HTML, CSS, JavaScript) and **full-stack projects** (React, Next.js, Node.js, Firebase, Supabase) — all live and accessible.
 
 ---
 
@@ -56,39 +58,48 @@ To maintain professional standards, the project is organized into modular direct
 * **Focus:** Full-Stack Library Management System.
 * **Tech:** React, Node.js, Express, MongoDB.
 * **Features:** Implemented a digital library where users can manage book inventories with a robust Backend API and database integration.
+* 🚀 **Live Demo:** [sohaatheneum.vercel.app](https://sohaatheneum.vercel.app/)
 
 ### **10 | Sohanix Wealth**
 * **Focus:** High-Performance Financial Analytics.
 * **Tech:** React, Framer Motion, Lucide-React, Node.js, MongoDB.
 * **Highlight:** A "Mindblowing" UI featuring real-time budget tracking, interactive graphs, and a premium glassmorphic authentication system.
 * **Security:** Integrated enterprise-grade security placeholders and secure JWT-based authentication flows.
+* 🚀 **Live Demo:** [sohanix-wealth.vercel.app](https://sohanix-wealth.vercel.app/login)
 
 ### **11 | CineVerse**
 * **Focus:** Full-Stack Movie & TV Show Streaming Platform.
 * **Tech:** React 18, Vite, Bootstrap 5, Firebase Auth (Google + Email), Firestore, TMDB API (40+ endpoints).
 * **Features:** Netflix-inspired discovery platform with cinematic landing page, horizontal content carousels, multi-search, watchlist persistence, dark/light theme, PWA support, and server-side content safety filtering.
+* 🚀 **Live Demo:** [primrflix.vercel.app](https://primrflix.vercel.app/)
 
 ### **12 | Sohafy**
 * **Focus:** Full-Stack E-Commerce Platform.
 * **Tech:** React 18, Tailwind CSS, Material UI, Redux Toolkit, Recharts, Node.js, Express, MongoDB, Firebase Auth + JWT.
 * **Features:** Complete e-commerce with admin dashboard (product CRUD, user management, revenue analytics), shopping cart with backend persistence, role-based access control, and hybrid Firebase + JWT authentication.
+* 🚀 **Live Demo:** [sohafy.vercel.app](https://sohafy.vercel.app/)
 
 ### **13 | Preplyx**
 * **Focus:** AI-Powered Interview Preparation Platform.
 * **Tech:** Next.js 16, TypeScript, Tailwind CSS, Framer Motion, Supabase (PostgreSQL + Auth + RLS), Vapi AI (voice interviews), Google Gemini 1.5 Flash.
 * **Features:** Real-time voice interviews via AI, automated feedback generation with scoring & grade system (S+/S/A/B/C/D), animated 3D SVG robot mascot, confetti celebrations, downloadable PNG reports, and ultra-premium glassmorphism UI.
+* 🚀 **Live Demo:** [preplyx.vercel.app](https://preplyx.vercel.app/login)
 
 ---
 
-## ⚠️ Important Note — Logbook Website Limitations
+## 🚀 Full-Stack Deployments
 
-This digital logbook is hosted as a **static website** (GitHub Pages), which means it can only directly serve and link to **pure frontend tasks** (HTML, CSS, JavaScript). Tasks that involve **React.js, Next.js, Node.js backends, databases (MongoDB, Supabase, Firebase), or any server-side logic** cannot be run or previewed from this logbook. These full-stack tasks (09–13) are marked with a **"Backend Required"** badge on the main page and require:
+All full-stack projects (Tasks 09–13) are deployed on **Vercel** with live production links, accessible directly from the logbook:
 
-- A **local development server** (`npm run dev` / `npm start`) to run the frontend.
-- A **running backend server** with proper environment variables and database connections.
-- **External services** (Firebase, Supabase, MongoDB Atlas, TMDB API, Vapi AI, Gemini API) to be configured.
+| Task | Project | Live Demo |
+|------|---------|----------|
+| 09 | Soha's Atheneum | [sohaatheneum.vercel.app](https://sohaatheneum.vercel.app/) |
+| 10 | Sohanix Wealth | [sohanix-wealth.vercel.app](https://sohanix-wealth.vercel.app/login) |
+| 11 | PrimeFlix | [primrflix.vercel.app](https://primrflix.vercel.app/) |
+| 12 | Sohafy | [sohafy.vercel.app](https://sohafy.vercel.app/) |
+| 13 | Preplyx | [preplyx.vercel.app](https://preplyx.vercel.app/login) |
 
-However, these full-stack tasks have been **deployed on Vercel** with live production links. Their source code, documentation, and deployment details are fully available in their respective `Tasks/task-XX/` folders.
+Frontend tasks (01–08) are served directly from the logbook via GitHub Pages. Full-stack tasks open their Vercel deployments in a new tab.
 
 ---
 
